@@ -1,5 +1,5 @@
 """
-URL configuration for allauth project.
+URL configuration for all__auth project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -22,4 +22,5 @@ from django.urls.resolvers import URLResolver
 urlpatterns: list[URLResolver] = [
     path("admin/", admin.site.urls),
     path("", include("core.urls")),
+    path("accounts/", include("allauth.urls")),
 ]
