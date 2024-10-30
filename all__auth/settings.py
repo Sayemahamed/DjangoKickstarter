@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+from curses.ascii import EM
 import os
 from pathlib import Path
 
@@ -40,11 +41,13 @@ INSTALLED_APPS: list[str] = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # my apps
+    "core",
     # package apps
     "allauth",
     "allauth.account",
-    "allauth.socialaccount",
-    "core",
+    # "allauth.socialaccount",
+    # "allauth.socialaccount.providers.google",
+    # "allauth.socialaccount.providers.github",
 ]
 
 MIDDLEWARE: list[str] = [
@@ -82,7 +85,7 @@ AUTHENTICATION_BACKENDS: list[str] = [
     # "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
-
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
