@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
-from curses.ascii import EM
 import os
 from pathlib import Path
 
@@ -134,7 +133,7 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATICFILES_DIRS: list[str] = [
     os.path.join(BASE_DIR, "static"),
-    "/var/www/static",
+    # "/var/www/static",
 ]
 MEDIA_URL = "/media/"
 MEDIA_ROOT: Path = BASE_DIR / "media"
