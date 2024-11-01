@@ -1,0 +1,45 @@
+{% load i18n %}
+<nav class="bg-white shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <div class="flex items-center">
+                <a href="/" class="flex-shrink-0 text-xl font-bold text-indigo-600">
+                    {% trans "MyWebsite" %}
+                </a>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="/"
+                            class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">
+                            {% trans "Home" %}
+                        </a>
+                        <!-- Add more links here -->
+                    </div>
+                </div>
+            </div>
+            <div>
+                {% if user.is_authenticated %}
+                <div class="ml-10 flex items-baseline space-x-4">
+                    {% url 'account_logout' as logout_url_ %}
+                    <a href="{{ logout_url_ }}"
+                        class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">
+                        {% trans "Sign Out" %}
+                    </a>
+                </div>
+                {% else %}
+                <div class="ml-10 flex items-baseline space-x-4">
+                    {% url 'account_login' as login_url_ %}
+                    <a href="{{ login_url_ }}"
+                        class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">
+                        {% trans "Sign In" %}
+                    </a>
+                    {% url 'account_signup' as signup_url_ %}
+                    <a href="{{ signup_url_ }}"
+                        class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">
+                        {% trans "Sign Up" %}
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>

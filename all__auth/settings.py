@@ -47,6 +47,8 @@ INSTALLED_APPS: list[str] = [
     # "allauth.socialaccount",
     # "allauth.socialaccount.providers.google",
     # "allauth.socialaccount.providers.github",
+    'widget_tweaks',
+    "django_browser_reload",
 ]
 
 MIDDLEWARE: list[str] = [
@@ -59,6 +61,7 @@ MIDDLEWARE: list[str] = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     # package middleware
     "allauth.account.middleware.AccountMiddleware",
+     "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 ROOT_URLCONF = "all__auth.urls"
 
