@@ -1,61 +1,51 @@
 {% extends 'base.html' %}
 {% load i18n widget_tweaks %}
 {% block body %}
-<div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
-    <h2 class="text-2xl font-bold text-center mb-6">{% trans "Sign Up" %}</h2>
-
-    <!-- Display form errors -->
-    {% if form.errors %}
-    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
-        <strong class="font-bold">{% trans "Error:" %}</strong>
-        <ul class="list-disc pl-5">
-            {% for field in form %}
-            {% for error in field.errors %}
-            <li>{{ error }}</li>
-            {% endfor %}
-            {% endfor %}
-            {% for error in form.non_field_errors %}
-            <li>{{ error }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-    {% endif %}
-
-    <form method="post" action="{% url 'account_signup' %}">
-        {% csrf_token %}
+<div class="max-w-md w-full bg-white p-6 rounded-lg shadow-md">
+    <h1 class="text-2xl font-bold mb-4 text-center">Sign Up</h1>
+    <p class="text-center mb-6">Already have an account? Please <a href="/accounts/login/"
+            class="text-blue-500 hover:underline">sign in</a>.</p>
+    <form method="post" action="/accounts/signup/">
+        <input type="hidden" name="csrfmiddlewaretoken"
+            value="0WImvsuSJrii0MnAPgSG5s0n5EwLzYcOrZ7za9j8bSSTfrgDXk4GaxlzOxOvcJS4">
         <div class="mb-4">
-            <label for="id_username" class="block text-sm font-medium text-gray-700">{% trans "Username" %}</label>
-            <input type="text" name="username" id="id_username"
-                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-                {% render_field form.username class="form-input" %}>
+            <label for="id_email" class="block text-sm font-medium text-gray-700">Email</label>
+            <input type="email" name="email" id="id_email" autocomplete="email" required
+                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
         </div>
         <div class="mb-4">
-            <label for="id_email" class="block text-sm font-medium text-gray-700">{% trans "Email" %}</label>
-            <input type="email" name="email" id="id_email"
-                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-                {% render_field form.email class="form-input" %}>
+            <label for="id_password" class="block text-sm font-medium text-gray-700">Password</label>
+            <input type="password" name="password" id="id_password" autocomplete="new-password" required
+                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
         </div>
         <div class="mb-4">
-            <label for="id_password1" class="block text-sm font-medium text-gray-700">{% trans "Password" %}</label>
-            <input type="password" name="password1" id="id_password1"
-                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-                {% render_field form.password1 class="form-input" %}>
-        </div>
-        <div class="mb-4">
-            <label for="id_password2" class="block text-sm font-medium text-gray-700">{% trans "Confirm Password"
-                %}</label>
-            <input type="password" name="password2" id="id_password2"
-                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-                {% render_field form.password2 class="form-input" %}>
+            <label for="id_password2" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+            <input type="password" name="password2" id="id_password2" autocomplete="new-password" required
+                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
         </div>
         <button type="submit"
-            class="w-full py-2 px-4 bg-indigo-600 text-white font-medium rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">{%
-            trans "Sign Up" %}</button>
+            class="w-full bg-blue-600 text-white p-3 rounded-md text-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Sign
+            Up</button>
     </form>
-    <p class="mt-6 text-center text-sm text-gray-600">
-        {% trans "Already have an account?" %}
-        <a href="{% url 'account_login' %}" class="font-medium text-indigo-600 hover:text-indigo-500">{% trans "Sign In"
-            %}</a>
-    </p>
+    <hr class="my-6">
+    <h2 class="text-lg font-semibold mb-4 text-center">Or use a third-party</h2>
+    <ul class="space-y-2">
+        <li><a href="/accounts/amazon/login/?process=login"
+                class="block w-full text-center text-gray-700 hover:bg-gray-100 p-2 rounded-md">Amazon</a></li>
+        <li><a href="/accounts/facebook/login/?process=login"
+                class="block w-full text-center text-gray-700 hover:bg-gray-100 p-2 rounded-md">Facebook</a></li>
+        <li><a href="/accounts/github/login/?process=login"
+                class="block w-full text-center text-gray-700 hover:bg-gray-100 p-2 rounded-md">GitHub</a></li>
+        <li><a href="/accounts/google/login/?process=login"
+                class="block w-full text-center text-gray-700 hover:bg-gray-100 p-2 rounded-md">Google</a></li>
+        <li><a href="/accounts/lichess/login/?process=login"
+                class="block w-full text-center text-gray-700 hover:bg-gray-100 p-2 rounded-md">Lichess</a></li>
+        <li><a href="/accounts/microsoft/login/?process=login"
+                class="block w-full text-center text-gray-700 hover:bg-gray-100 p-2 rounded-md">Microsoft</a></li>
+        <li><a href="/accounts/telegram/login/?process=login"
+                class="block w-full text-center text-gray-700 hover:bg-gray-100 p-2 rounded-md">Telegram</a></li>
+        <li><a href="/accounts/twitch/login/?process=login"
+                class="block w-full text-center text-gray-700 hover:bg-gray-100 p-2 rounded-md">Twitch</a></li>
+    </ul>
 </div>
 {% endblock %}

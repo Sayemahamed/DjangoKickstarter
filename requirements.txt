@@ -2,3 +2,4 @@ django
 django-allauth[socialaccount]
 django-widget-tweaks
 django-browser-reload
+python-dotenv
