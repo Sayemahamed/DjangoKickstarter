@@ -20,8 +20,8 @@ from django.urls import include, path
 from django.urls.resolvers import URLResolver
 
 urlpatterns: list[URLResolver] = [
-    path("admin/", admin.site.urls),
-    path("", include("core.urls")),
-    path("accounts/", include("allauth.urls")),
-    path("__reload__/", include("django_browser_reload.urls")),
+    path(route="admin/", view=admin.site.urls),
+    path(route="", view=include(arg="core.urls")),
+    path(route="accounts/", view=include(arg="allauth.urls")),
+    path(route="__reload__/", view=include(arg="django_browser_reload.urls")),
 ]
