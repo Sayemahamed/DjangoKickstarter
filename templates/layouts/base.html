@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% include 'fragments/navbar.html' %}
+<div class="container mx-auto bg-red-700 p-8">
+    {% block content %}{% endblock content %}
+</div>
+{% endblock body %}
