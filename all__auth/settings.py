@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 from dotenv import load_dotenv
 from pathlib import Path
+from django.utils.translation import gettext_lazy
+
 load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR: Path = Path(__file__).resolve().parent.parent
@@ -30,7 +32,11 @@ DEBUG = True
 ALLOWED_HOSTS: list[str] = []
 ACCOUNT_AUTHENTICATION_METHOD: str = "email"
 ACCOUNT_EMAIL_REQUIRED: bool = True
-
+ACCOUNT_EMAIL_VERIFICATION: str = "mandatory"
+LANGUAGES: list[tuple[str, str]] = [
+    ("en", gettext_lazy(message="English")),
+    ("es", gettext_lazy(message="Spanish")),
+]
 # Application definition
 
 INSTALLED_APPS: list[str] = [
@@ -48,7 +54,7 @@ INSTALLED_APPS: list[str] = [
     "allauth.socialaccount",
     "allauth.socialaccount.providers.google",
     # "allauth.socialaccount.providers.github",
-    'widget_tweaks',
+    "widget_tweaks",
     "django_browser_reload",
 ]
 
@@ -62,7 +68,8 @@ MIDDLEWARE: list[str] = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     # package middleware
     "allauth.account.middleware.AccountMiddleware",
-     "django_browser_reload.middleware.BrowserReloadMiddleware",
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
 ]
 ROOT_URLCONF = "all__auth.urls"
 
@@ -89,25 +96,21 @@ AUTHENTICATION_BACKENDS: list[str] = [
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-SOCIALACCOUNT_PROVIDERS = {
-  'google': {
-      'EMAIL_AUTHENTICATION': True
-  }
-}
+SOCIALACCOUNT_PROVIDERS = {"google": {"EMAIL_AUTHENTICATION": True}}
 SOCIALACCOUNT_FORMS = {
-    'disconnect': 'allauth.socialaccount.forms.DisconnectForm',
-    'signup': 'allauth.socialaccount.forms.SignupForm',
+    "disconnect": "allauth.socialaccount.forms.DisconnectForm",
+    "signup": "allauth.socialaccount.forms.SignupForm",
 }
 SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'SCOPE': [
-            'profile',
-            'email',
+    "google": {
+        "SCOPE": [
+            "profile",
+            "email",
         ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
+        "AUTH_PARAMS": {
+            "access_type": "online",
         },
-        'OAUTH_PKCE_ENABLED': True,
+        "OAUTH_PKCE_ENABLED": True,
     }
 }
 # Database
