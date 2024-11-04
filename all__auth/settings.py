@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 from dotenv import load_dotenv
 from pathlib import Path
-from django.utils.translation import gettext_lazy
 
 load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -33,10 +32,9 @@ ALLOWED_HOSTS: list[str] = []
 ACCOUNT_AUTHENTICATION_METHOD: str = "email"
 ACCOUNT_EMAIL_REQUIRED: bool = True
 ACCOUNT_EMAIL_VERIFICATION: str = "mandatory"
-LANGUAGES: list[tuple[str, str]] = [
-    ("en", gettext_lazy(message="English")),
-    ("es", gettext_lazy(message="Spanish")),
-]
+ACCOUNT_USER_MODEL_EMAIL_FIELD = 'email'
+ACCOUNT_USERNAME_REQUIRED = False
+
 # Application definition
 
 INSTALLED_APPS: list[str] = [
@@ -92,7 +90,7 @@ TEMPLATES = [
 WSGI_APPLICATION = "all__auth.wsgi.application"
 
 AUTHENTICATION_BACKENDS: list[str] = [
-    # "django.contrib.auth.backends.ModelBackend",
+    #"django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"

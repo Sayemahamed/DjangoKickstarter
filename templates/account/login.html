@@ -7,8 +7,7 @@ Login
 {% endblock title %}
 
 {% block content %}
-<div
-        class="max-w-md w-full p-6 rounded-lg shadow-md bg-blue-400 col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4 xl:col-span-5 m-auto">
+<div class="max-w-md w-full p-6 rounded-lg shadow-md bg-blue-400">
 
         <h1 class="text-2xl font-bold mb-4 text-center">Sign In</h1>
         <p class="text-center mb-6">
@@ -19,28 +18,44 @@ Login
         <form method="post" action="{% url 'account_login' %}">
                 {% csrf_token %}
                 <div class="mb-4">
+                        {% if form.login.errors %}
+                        {% for error in form.login.errors %}
+                        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
+                                <strong class="font-bold">Error:</strong>
+                                <ul class="list-disc pl-5">
+                                        <li>{{ error }}</li>
+                                </ul>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
                         <label for="id_login" class="block text-sm font-medium text-gray-700">Email
                         </label>
-                        {% render_field form.login                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" %}
+                        {% render_field form.login class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm                        p-2" field="email" %}
                 </div>
                 <div class="mb-4">
-                        <label for="id_password"
-                                class="block text-sm font-medium text-gray-700">Password
-                        </label> 
-                                {% render_field form.password class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" %}
-                </div> <button type="submit"
-                        class="w-full bg-blue-600 text-white p-3 rounded-md text-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Login</button>
+
+                        <label for="id_password" class="block text-sm font-medium text-gray-700">Password
+                        </label>
+                        {% render_field form.password class="mt-1 block w-full border border-gray-300 rounded-md                        shadow-sm p-2" field="password" %}
+                </div>
+                <button type="submit"
+                        class="w-full bg-blue-600 text-white p-3 rounded-md text-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Login
+                </button>
         </form>
         <hr class="my-6">
-        <div class="btn-group-vertical w-100" role="group"> <button form="mfa_login" id="passkey_login" type="submit"
-                        class="w-full bg-gray-200 text-gray-700 p-3 rounded-md text-lg font-semibold hover:bg-gray-300">Sign
-                        in with
-                        a passkey</button> <a href="/accounts/login/code/"
-                        class="w-full bg-gray-200 text-gray-700 p-3 rounded-md text-lg font-semibold hover:bg-gray-300">Mail
-                        me a
-                        sign-in code</a> </div>
-        <!-- <hr class="my-6">
-        <h2 class="text-lg font-semibold mb-4 text-center">Or use a third-party</h2>
+        <div class="btn-group-vertical w-100" role="group">
+                <button form="mfa_login" id="passkey_login" type="submit"
+                        class="w-full bg-gray-200 text-gray-700 p-3 rounded-md text-lg font-semibold hover:bg-gray-300">
+                        Sign in with a passkey
+                </button>
+                <a href="/accounts/login/code/"
+                        class="w-full bg-gray-200 text-gray-700 p-3 rounded-md text-lg font-semibold hover:bg-gray-300">
+                        Mail me a sign-in code
+                </a>
+        </div>
+        <hr class="my-6">
+        <h2 class="text-lg font-semibold mb-4 text-center">
+                Or use a third-party</h2>
         <ul class="space-y-2">
                 <li><a href="/accounts/amazon/login/?process=login"
                                 class="block w-full text-center text-gray-700 hover:bg-gray-100 p-2 rounded-md">Amazon</a>
@@ -66,6 +81,6 @@ Login
                 <li><a href="/accounts/twitch/login/?process=login"
                                 class="block w-full text-center text-gray-700 hover:bg-gray-100 p-2 rounded-md">Twitch</a>
                 </li>
-        </ul> -->
+        </ul>
 </div>
 {% endblock %}
