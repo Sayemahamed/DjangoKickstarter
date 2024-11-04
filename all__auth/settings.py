@@ -28,13 +28,11 @@ SECRET_KEY: str | None = os.getenv(key="SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS: list[str] = []
+ALLOWED_HOSTS: list[str] = ["*"]
 ACCOUNT_AUTHENTICATION_METHOD: str = "email"
 ACCOUNT_EMAIL_REQUIRED: bool = True
-ACCOUNT_EMAIL_VERIFICATION: str = "mandatory"
-ACCOUNT_USER_MODEL_EMAIL_FIELD = 'email'
+ACCOUNT_EMAIL_VERIFICATION: str = "optional"
 ACCOUNT_USERNAME_REQUIRED = False
-
 # Application definition
 
 INSTALLED_APPS: list[str] = [
@@ -51,7 +49,7 @@ INSTALLED_APPS: list[str] = [
     "allauth.account",
     "allauth.socialaccount",
     "allauth.socialaccount.providers.google",
-    # "allauth.socialaccount.providers.github",
+    "allauth.socialaccount.providers.facebook",
     "widget_tweaks",
     "django_browser_reload",
 ]
@@ -67,7 +65,6 @@ MIDDLEWARE: list[str] = [
     # package middleware
     "allauth.account.middleware.AccountMiddleware",
     "django_browser_reload.middleware.BrowserReloadMiddleware",
-    "django.middleware.locale.LocaleMiddleware",
 ]
 ROOT_URLCONF = "all__auth.urls"
 
@@ -90,11 +87,11 @@ TEMPLATES = [
 WSGI_APPLICATION = "all__auth.wsgi.application"
 
 AUTHENTICATION_BACKENDS: list[str] = [
-    #"django.contrib.auth.backends.ModelBackend",
+    "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-SOCIALACCOUNT_PROVIDERS = {"google": {"EMAIL_AUTHENTICATION": True}}
+
 SOCIALACCOUNT_FORMS = {
     "disconnect": "allauth.socialaccount.forms.DisconnectForm",
     "signup": "allauth.socialaccount.forms.SignupForm",
@@ -109,7 +106,12 @@ SOCIALACCOUNT_PROVIDERS = {
             "access_type": "online",
         },
         "OAUTH_PKCE_ENABLED": True,
-    }
+    },
+    "facebook": {
+        "METHOD": "oauth2",
+        "SCOPE": ["email", "public_profile"],
+        "AUTH_PARAMS": {"auth_type": "online"},
+    },
 }
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases

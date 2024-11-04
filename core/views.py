@@ -1,8 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from allauth.account.views import LoginView
-print( LoginView)
 
 
 # Create your views here.
