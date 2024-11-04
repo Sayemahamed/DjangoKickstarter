@@ -1,22 +1,26 @@
-{% extends 'base.html' %}
-{% load i18n %}
+{% extends 'layouts/base.html' %}
 
-{% block body %}
+{% block title %}
+Profile
+{{ block.super }}
+{% endblock %}
+
+{% block content %}
 <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
     <div class="text-center mb-6"> <img class="w-24 h-24 rounded-full mx-auto mb-4"
             src="{% if user.profile_image %}{{ user.profile_image.url }}{% else %}https://via.placeholder.com/150{% endif %}"
-            alt="{% trans 'Profile Image' %}">
+            alt="Profile Image">
         <h2 class="text-2xl font-bold text-gray-900 mb-2">{{ user.username }}</h2>
-        <p class="text-gray-700">{% trans "Email" %}: {{ user.email }}</p>
+        <p class="text-gray-700">Email: {{ user.email }}</p>
     </div>
     <div class="mt-6">
-        <h3 class="text-lg font-medium text-gray-900 mb-2">{% trans "Account Settings" %}</h3>
+        <h3 class="text-lg font-medium text-gray-900 mb-2">Account Settings</h3>
         <ul class="list-disc pl-5 space-y-2 text-gray-700"> {% url 'account_email' as email_url_ %} {% if email_url_ %}
-            <li><a href="{{ email_url_ }}" class="text-indigo-600 hover:text-indigo-800">{% trans "Change Email" %}</a>
+            <li><a href="{{ email_url_ }}" class="text-indigo-600 hover:text-indigo-800">Change Email</a>
             </li> {% endif %} {% url 'account_change_password' as change_password_url_ %} {% if change_password_url_ %}
-            <li><a href="{{ change_password_url_ }}" class="text-indigo-600 hover:text-indigo-800">{% trans "Change
-                    Password" %}</a></li> {% endif %} {% url 'account_logout' as logout_url_ %} {% if logout_url_ %}
-            <li><a href="{{ logout_url_ }}" class="text-indigo-600 hover:text-indigo-800">{% trans "Sign Out" %}</a>
+            <li><a href="{{ change_password_url_ }}" class="text-indigo-600 hover:text-indigo-800">
+                    Change Password</a></li> {% endif %} {% url 'account_logout' as logout_url_ %} {% if logout_url_ %}
+            <li><a href="{{ logout_url_ }}" class="text-indigo-600 hover:text-indigo-800">Sign Out</a>
             </li> {% endif %}
         </ul>
     </div>
