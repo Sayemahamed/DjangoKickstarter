@@ -42,17 +42,11 @@ Login
                         class="w-full bg-blue-600 text-white p-3 rounded-md text-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Login
                 </button>
         </form>
-        <hr class="my-6">
-        <div class="btn-group-vertical w-100" role="group">
-                <button form="mfa_login" id="passkey_login" type="submit"
-                        class="w-full bg-gray-200 text-gray-700 p-3 rounded-md text-lg font-semibold hover:bg-gray-300">
-                        Sign in with a passkey
-                </button>
-                <a href="/accounts/login/code/"
-                        class="w-full bg-gray-200 text-gray-700 p-3 rounded-md text-lg font-semibold hover:bg-gray-300">
-                        Mail me a sign-in code
+        <p class="text-center mt-4 text-sm text-gray-600">
+                <a href="{% url 'account_reset_password' %}"
+                        class="text-blue-500 hover:underline">Forgot Password?
                 </a>
-        </div>
+        </p>
         <hr class="my-6">
         <h2 class="text-lg font-semibold mb-4 text-center">
                 Or use a third-party</h2>
