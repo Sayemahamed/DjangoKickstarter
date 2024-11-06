@@ -23,7 +23,7 @@ BASE_DIR: Path = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY: str | None = os.getenv(key="SECRET_KEY")
+SECRET_KEY = "@xrl+$k(l%pu4l89$+rro&ex7uu3+!n682rj(978dlm0dt297f"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,7 +31,7 @@ DEBUG = True
 ALLOWED_HOSTS: list[str] = ["*"]
 ACCOUNT_AUTHENTICATION_METHOD: str = "email"
 ACCOUNT_EMAIL_REQUIRED: bool = True
-ACCOUNT_EMAIL_VERIFICATION: str = "optional"
+ACCOUNT_EMAIL_VERIFICATION: str = "mandatory"
 ACCOUNT_USERNAME_REQUIRED = False
 # Application definition
 
@@ -90,7 +90,16 @@ AUTHENTICATION_BACKENDS: list[str] = [
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 465  # Use SSL
+EMAIL_USE_SSL = True  # Use SSL instead of TLS
+EMAIL_HOST_USER = 'allauthtest15@gmail.com'
+EMAIL_HOST_PASSWORD = 'pymvyuccgixixlyk' 
+DEFAULT_FROM_EMAIL = 'allauthtest15@gmail.com'
+
 
 SOCIALACCOUNT_FORMS = {
     "disconnect": "allauth.socialaccount.forms.DisconnectForm",
