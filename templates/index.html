@@ -1,90 +1,87 @@
-{% extends 'layouts/base.html' %}
-
+{% extends 'base.html' %}
 
 {% block title %}
-Home
+DjangoKickstarter - Modern Django Boilerplate
 {{ block.super }}
 {% endblock title %}
 
-{% block content %}
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+{% block body %}
+<div class="min-h-screen bg-background">
+    <!-- Hero Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center">
+            <h1 class="text-4xl font-bold text-copy-primary mb-4">Welcome to DjangoKickstarter</h1>
+            <p class="text-copy-secondary text-xl mb-8">A preconfigured Django boilerplate designed to accelerate your development process.</p>
+            {% if not user.is_authenticated %}
+            <div class="flex justify-center gap-4">
+                <a href="{% url 'account_login' %}" class="bg-cta text-cta-text px-6 py-3 rounded-lg font-semibold hover:bg-cta-active transition-colors">
+                    Sign In
+                </a>
+                <a href="{% url 'account_signup' %}" class="bg-card text-copy-primary px-6 py-3 rounded-lg font-semibold border border-border hover:bg-background transition-colors">
+                    Create Account
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
 
-    <div class="max-w-md  bg-white p-6 rounded-lg shadow-md ">
-        <h2 class="text-lg font-bold mb-4">Welcome to the Django All-Auth Starter</h2>
-        <p class="mb-6">This project is a pre-configured Django project with all the authentication features you need to
-            get
-            started. It includes Google login, Facebook login, GitHub login, password reset, sign up, sign in, sign out,
-            and
-            email verification.</p>
-        <a href="{% url 'account_signup' %}"
-            class="w-full bg-blue-600 text-white p-3 rounded-md text-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Create
-            an Account</a>
+    <!-- Features Grid -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Authentication Card -->
+            <div class="bg-card p-6 rounded-lg border border-border">
+                <div class="text-cta mb-4">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <h2 class="text-xl font-semibold text-copy-primary mb-3">User Authentication</h2>
+                <p class="text-copy-secondary mb-4">Complete authentication system with social login support for Google, Facebook, and GitHub.</p>
+                <a href="{% url 'account_signup' %}" class="text-cta hover:text-cta-active">Learn more →</a>
+            </div>
+
+            <!-- Tailwind CSS Card -->
+            <div class="bg-card p-6 rounded-lg border border-border">
+                <div class="text-cta mb-4">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <h2 class="text-xl font-semibold text-copy-primary mb-3">Tailwind CSS</h2>
+                <p class="text-copy-secondary mb-4">Modern utility-first CSS framework with dark mode support and custom theme configuration.</p>
+                <a href="https://tailwindcss.com" class="text-cta hover:text-cta-active">Documentation →</a>
+            </div>
+
+            <!-- Templates Card -->
+            <div class="bg-card p-6 rounded-lg border border-border">
+                <div class="text-cta mb-4">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <h2 class="text-xl font-semibold text-copy-primary mb-3">Template Library</h2>
+                <p class="text-copy-secondary mb-4">Pre-built templates for authentication, profile pages, and more to jumpstart your development.</p>
+                <a href="/profile" class="text-cta hover:text-cta-active">View templates →</a>
+            </div>
+        </div>
     </div>
-    <div class="max-w-md  bg-white p-6 rounded-lg shadow-md ">
-        <h2 class="text-lg font-bold mb-4">Welcome to the Django All-Auth Starter</h2>
-        <p class="mb-6">This project is a pre-configured Django project with all the authentication features you need to
-            get
-            started. It includes Google login, Facebook login, GitHub login, password reset, sign up, sign in, sign out,
-            and
-            email verification.</p>
-        <a href="{% url 'account_signup' %}"
-            class="w-full bg-blue-600 text-white p-3 rounded-md text-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Create
-            an Account</a>
-    </div>
-    <div class="max-w-md  bg-white p-6 rounded-lg shadow-md ">
-        <h2 class="text-lg font-bold mb-4">Welcome to the Django All-Auth Starter</h2>
-        <p class="mb-6">This project is a pre-configured Django project with all the authentication features you need to
-            get
-            started. It includes Google login, Facebook login, GitHub login, password reset, sign up, sign in, sign out,
-            and
-            email verification.</p>
-        <a href="{% url 'account_signup' %}"
-            class="w-full bg-blue-600 text-white p-3 rounded-md text-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Create
-            an Account</a>
-    </div>
-    <div class="max-w-md  bg-white p-6 rounded-lg shadow-md ">
-        <h2 class="text-lg font-bold mb-4">Welcome to the Django All-Auth Starter</h2>
-        <p class="mb-6">This project is a pre-configured Django project with all the authentication features you need to
-            get
-            started. It includes Google login, Facebook login, GitHub login, password reset, sign up, sign in, sign out,
-            and
-            email verification.</p>
-        <a href="{% url 'account_signup' %}"
-            class="w-full bg-blue-600 text-white p-3 rounded-md text-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Create
-            an Account</a>
-    </div>
-    <div class="max-w-md  bg-white p-6 rounded-lg shadow-md">
-        <h2 class="text-lg font-bold mb-4">Welcome to the Django All-Auth Starter</h2>
-        <p class="mb-6">This project is a pre-configured Django project with all the authentication features you need to
-            get
-            started. It includes Google login, Facebook login, GitHub login, password reset, sign up, sign in, sign out,
-            and
-            email verification.</p>
-        <a href="{% url 'account_signup' %}"
-            class="w-full bg-blue-600 text-white p-3 rounded-md text-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Create
-            an Account</a>
-    </div>
-    <div class="max-w-md  bg-white p-6 rounded-lg shadow-md">
-        <h2 class="text-lg font-bold mb-4">Welcome to the Django All-Auth Starter</h2>
-        <p class="mb-6">This project is a pre-configured Django project with all the authentication features you need to
-            get
-            started. It includes Google login, Facebook login, GitHub login, password reset, sign up, sign in, sign out,
-            and
-            email verification.</p>
-        <a href="{% url 'account_signup' %}"
-            class="w-full bg-blue-600 text-white p-3 rounded-md text-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Create
-            an Account</a>
-    </div>
-    <div class="max-w-md  bg-white p-6 rounded-lg shadow-md">
-        <h2 class="text-lg font-bold mb-4">Welcome to the Django All-Auth Starter</h2>
-        <p class="mb-6">This project is a pre-configured Django project with all the authentication features you need to
-            get
-            started. It includes Google login, Facebook login, GitHub login, password reset, sign up, sign in, sign out,
-            and
-            email verification.</p>
-        <a href="{% url 'account_signup' %}"
-            class="w-full bg-blue-600 text-white p-3 rounded-md text-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Create
-            an Account</a>
+
+    <!-- Quick Start Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="bg-card border border-border rounded-lg p-8">
+            <h2 class="text-2xl font-bold text-copy-primary mb-6">Quick Start</h2>
+            <div class="bg-background p-4 rounded-lg border border-border">
+                <code class="text-copy-primary">
+                    <span class="text-copy-secondary"># Clone the repository</span><br>
+                    git clone https://github.com/Sayemahamed/DjangoKickstarter.git<br><br>
+                    <span class="text-copy-secondary"># Install dependencies</span><br>
+                    pip install -r requirements.txt<br>
+                    npm install<br><br>
+                    <span class="text-copy-secondary"># Start development server</span><br>
+                    npm run dev
+                </code>
+            </div>
+        </div>
     </div>
 </div>
-{% endblock content %}
+{% endblock body %}

@@ -1,46 +1,57 @@
-<header>
-    <nav class="bg-white shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center">
-                    <a href="/" class="flex-shrink-0 text-xl font-bold text-indigo-600">
-                        MyWebsite
-                    </a>
-                    <div class="hidden md:block">
-                        <div class="ml-10 flex items-baseline space-x-4">
-                            <a href="/"
-                                class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">
-                                Home
-                            </a>
-                            <!-- Add more links here -->
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    {% if user.is_authenticated %}
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        {% url 'account_logout' as logout_url_ %}
-                        <a href="{{ logout_url_ }}"
-                            class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">
-                            Sign Out
-                        </a>
-                    </div>
-                    {% else %}
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        {% url 'account_login' as login_url_ %}
-                        <a href="{{ login_url_ }}"
-                            class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">
-                            Sign In
-                        </a>
-                        {% url 'account_signup' as signup_url_ %}
-                        <a href="{{ signup_url_ }}"
-                            class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">
-                            Sign Up
-                        </a>
-                    </div>
-                    {% endif %}
-                </div>
+<nav class="bg-card border-b border-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <!-- Logo and Brand -->
+            <div class="flex items-center">
+                <a href="/" class="text-xl font-bold text-copy-primary hover:text-cta transition-colors">
+                    DjangoKickstarter
+                </a>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="/" class="text-copy-secondary hover:text-copy-primary px-3 py-2 rounded-md transition-colors">Home</a>
+                <a href="/docs" class="text-copy-secondary hover:text-copy-primary px-3 py-2 rounded-md transition-colors">Documentation</a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'account_email' %}" class="text-copy-secondary hover:text-copy-primary px-3 py-2 rounded-md transition-colors">Settings</a>
+                    <a href="{% url 'account_logout' %}" class="bg-card text-copy-primary px-4 py-2 rounded-lg border border-border hover:bg-background transition-colors">Sign Out</a>
+                {% else %}
+                    <a href="{% url 'account_login' %}" class="text-copy-secondary hover:text-copy-primary px-3 py-2 rounded-md transition-colors">Sign In</a>
+                    <a href="{% url 'account_signup' %}" class="bg-cta text-cta-text px-4 py-2 rounded-lg hover:bg-cta-active transition-colors">Get Started</a>
+                {% endif %}
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="flex items-center md:hidden">
+                <button type="button" class="text-copy-secondary hover:text-copy-primary" aria-label="Toggle menu">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
             </div>
         </div>
-    </nav>
-</header>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="hidden md:hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+            <a href="/" class="block text-copy-secondary hover:text-copy-primary px-3 py-2 rounded-md">Home</a>
+            <a href="/docs" class="block text-copy-secondary hover:text-copy-primary px-3 py-2 rounded-md">Documentation</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'account_email' %}" class="block text-copy-secondary hover:text-copy-primary px-3 py-2 rounded-md">Settings</a>
+                <a href="{% url 'account_logout' %}" class="block text-copy-secondary hover:text-copy-primary px-3 py-2 rounded-md">Sign Out</a>
+            {% else %}
+                <a href="{% url 'account_login' %}" class="block text-copy-secondary hover:text-copy-primary px-3 py-2 rounded-md">Sign In</a>
+                <a href="{% url 'account_signup' %}" class="block bg-cta text-cta-text px-3 py-2 rounded-md hover:bg-cta-active">Get Started</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+
+<script>
+    // Mobile menu toggle
+    document.querySelector('button[aria-label="Toggle menu"]').addEventListener('click', function() {
+        const mobileMenu = document.querySelector('.md\\:hidden:not(.flex)');
+        mobileMenu.classList.toggle('hidden');
+    });
+</script>

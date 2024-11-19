@@ -34,7 +34,7 @@ DEBUG = True
 ALLOWED_HOSTS: list[str] = ["*"]
 ACCOUNT_AUTHENTICATION_METHOD: str = "email"
 ACCOUNT_EMAIL_REQUIRED: bool = True
-ACCOUNT_EMAIL_VERIFICATION: str = "mandatory"
+ACCOUNT_EMAIL_VERIFICATION: str = "optional"
 ACCOUNT_USERNAME_REQUIRED = False
 # Application definition
 
