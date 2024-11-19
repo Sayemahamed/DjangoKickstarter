@@ -1,0 +1,72 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %}Authentication Error{% endblock %}
+
+{% block content %}
+<div class="max-w-md w-full space-y-8">
+    <div class="text-center">
+        <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100">
+            <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+        </div>
+        <h1 class="mt-3 text-2xl font-bold text-copy-primary">Authentication Error</h1>
+        <p class="mt-2 text-copy-secondary">
+            We encountered an error while trying to authenticate your account.
+        </p>
+    </div>
+
+    <div class="bg-card p-8 rounded-lg border border-border">
+        <div class="rounded-md bg-red-50 p-4 mb-6">
+            <div class="flex">
+                <div class="flex-shrink-0">
+                    <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-sm font-medium text-red-800">Error Details</h3>
+                    <div class="mt-2 text-sm text-red-700">
+                        <p>{{ auth_error }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="space-y-4">
+            <a href="{% url 'account_login' %}"
+               class="w-full flex justify-center items-center px-4 py-2 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-cta hover:bg-cta-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cta">
+                Try Again
+            </a>
+            <a href="{% url 'core:index' %}"
+               class="w-full flex justify-center items-center px-4 py-2 border border-border rounded-lg text-sm font-medium text-copy-primary bg-background hover:bg-card focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cta">
+                Return Home
+            </a>
+        </div>
+    </div>
+
+    <div class="bg-card p-6 rounded-lg border border-border">
+        <div class="flex items-start space-x-3">
+            <div class="flex-shrink-0">
+                <svg class="h-6 w-6 text-copy-secondary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+            </div>
+            <div>
+                <h3 class="text-sm font-medium text-copy-primary">Need Help?</h3>
+                <p class="mt-1 text-sm text-copy-secondary">
+                    If you continue to experience issues, please try these steps:
+                </p>
+                <ul class="mt-2 text-sm text-copy-secondary list-disc list-inside space-y-1">
+                    <li>Clear your browser cookies</li>
+                    <li>Try using a different browser</li>
+                    <li>Check if the service is available</li>
+                    <li>Contact our support team</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

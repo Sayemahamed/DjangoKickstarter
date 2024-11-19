@@ -1,0 +1,94 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% load socialaccount %}
+
+{% block title %}Connected Accounts{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl w-full space-y-8">
+    <div class="text-center">
+        <h1 class="text-2xl font-bold text-copy-primary">Connected Accounts</h1>
+        <p class="mt-2 text-copy-secondary">Manage your connected social accounts</p>
+    </div>
+
+    <!-- Connected Accounts List -->
+    <div class="bg-card p-8 rounded-lg border border-border">
+        <h2 class="text-lg font-medium text-copy-primary mb-4">Your Connected Accounts</h2>
+        
+        {% if socialaccounts %}
+        <div class="space-y-4">
+            {% for account in socialaccounts %}
+            <div class="flex items-center justify-between p-4 rounded-lg bg-background">
+                <div class="flex items-center space-x-3">
+                    <div class="flex-shrink-0">
+                        {% with "images/"|add:account.provider|add:".svg" as provider_icon %}
+                        <img src="{% static provider_icon %}" alt="{{ account.provider }} icon" class="w-8 h-8">
+                        {% endwith %}
+                    </div>
+                    <div>
+                        <p class="text-copy-primary font-medium">{{ account.provider|title }}</p>
+                        {% if account.extra_data.email %}
+                        <p class="text-sm text-copy-secondary">{{ account.extra_data.email }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <form method="post" action="{% url 'socialaccount_connections' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="account" value="{{ account.id }}">
+                    <button type="submit" name="action_disconnect"
+                            class="px-3 py-1 text-sm text-red-600 hover:text-red-800 font-medium hover:underline">
+                        Disconnect
+                    </button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="text-copy-secondary text-center py-4">No social accounts connected.</p>
+        {% endif %}
+    </div>
+
+    <!-- Available Providers -->
+    <div class="bg-card p-8 rounded-lg border border-border">
+        <h2 class="text-lg font-medium text-copy-primary mb-4">Connect More Accounts</h2>
+        
+        <div class="grid gap-4 grid-cols-1 sm:grid-cols-2">
+            {% get_providers as socialaccount_providers %}
+            {% for provider in socialaccount_providers %}
+            {% if provider.id not in connected_providers %}
+            <a href="{% provider_login_url provider.id process='connect' %}"
+               class="flex items-center p-4 rounded-lg border border-border hover:bg-background transition-colors">
+                <div class="flex-shrink-0">
+                    {% with "images/"|add:provider.id|add:".svg" as provider_icon %}
+                    <img src="{% static provider_icon %}" alt="{{ provider.name }} icon" class="w-6 h-6">
+                    {% endwith %}
+                </div>
+                <div class="ml-3">
+                    <p class="text-copy-primary font-medium">{{ provider.name }}</p>
+                </div>
+            </a>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Help Section -->
+    <div class="bg-card p-6 rounded-lg border border-border">
+        <div class="flex items-start space-x-3">
+            <div class="flex-shrink-0">
+                <svg class="h-6 w-6 text-copy-secondary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+            </div>
+            <div>
+                <h3 class="text-sm font-medium text-copy-primary">About Social Connections</h3>
+                <p class="mt-1 text-sm text-copy-secondary">
+                    Connected accounts allow you to sign in using your social media accounts. 
+                    You can connect multiple accounts for easier access.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
