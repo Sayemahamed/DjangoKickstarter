@@ -11,13 +11,16 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 import os
-from dotenv import load_dotenv
 from pathlib import Path
 
-load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR: Path = Path(__file__).resolve().parent.parent
-
+TEMPLATES_DIR: str = os.path.join(BASE_DIR, "templates")
+MEDIA_ROOT: str = os.path.join(BASE_DIR, "media")
+STATICFILES_DIRS: list[str] = [
+    os.path.join(BASE_DIR, "static"),
+    # "/var/www/static",
+]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -71,7 +74,7 @@ ROOT_URLCONF = "all__auth.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, "templates")],
+        "DIRS": [TEMPLATES_DIR],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -168,12 +171,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = "static/"
-STATICFILES_DIRS: list[str] = [
-    os.path.join(BASE_DIR, "static"),
-    # "/var/www/static",
-]
 MEDIA_URL = "/media/"
-MEDIA_ROOT: Path = BASE_DIR / "media"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
