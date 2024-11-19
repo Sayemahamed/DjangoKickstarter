@@ -1,57 +1,138 @@
-<nav class="bg-card border-b border-border">
+{# Navbar #}
+<nav class="bg-card border-b border-border sticky top-0 z-50 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
-            <!-- Logo and Brand -->
+            {# Logo #}
             <div class="flex items-center">
-                <a href="/" class="text-xl font-bold text-copy-primary hover:text-cta transition-colors">
-                    DjangoKickstarter
+                <a href="/" class="group flex items-center space-x-2 text-xl font-bold text-copy-primary hover:text-cta transition-all duration-200">
+                    <svg class="h-8 w-8 text-cta transform group-hover:scale-110 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    <span>DjangoKickstarter</span>
                 </a>
             </div>
 
-            <!-- Navigation Links -->
-            <div class="hidden md:flex items-center space-x-4">
-                <a href="/" class="text-copy-secondary hover:text-copy-primary px-3 py-2 rounded-md transition-colors">Home</a>
-                <a href="/docs" class="text-copy-secondary hover:text-copy-primary px-3 py-2 rounded-md transition-colors">Documentation</a>
+            {# Desktop Navigation #}
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="/" class="nav-link group {% if request.path == '/' %}text-copy-primary font-medium{% else %}text-copy-secondary{% endif %}">
+                    <span class="relative">
+                        Home
+                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-cta transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
+                    </span>
+                </a>
+                <a href="/docs" class="nav-link group {% if request.path == '/docs' %}text-copy-primary font-medium{% else %}text-copy-secondary{% endif %}">
+                    <span class="relative">
+                        Documentation
+                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-cta transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
+                    </span>
+                </a>
+                
                 {% if user.is_authenticated %}
-                    <a href="{% url 'account_email' %}" class="text-copy-secondary hover:text-copy-primary px-3 py-2 rounded-md transition-colors">Settings</a>
-                    <a href="{% url 'account_logout' %}" class="bg-card text-copy-primary px-4 py-2 rounded-lg border border-border hover:bg-background transition-colors">Sign Out</a>
+                    <div class="flex items-center space-x-4">
+                        <a href="{% url 'account_email' %}" class="nav-link group text-copy-secondary">
+                            <span class="relative">
+                                Settings
+                                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-cta transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
+                            </span>
+                        </a>
+                        <a href="{% url 'account_logout' %}" 
+                           class="px-4 py-2 rounded-lg border border-border text-copy-primary hover:bg-background hover:border-cta transition-all duration-200">
+                            Sign Out
+                        </a>
+                    </div>
                 {% else %}
-                    <a href="{% url 'account_login' %}" class="text-copy-secondary hover:text-copy-primary px-3 py-2 rounded-md transition-colors">Sign In</a>
-                    <a href="{% url 'account_signup' %}" class="bg-cta text-cta-text px-4 py-2 rounded-lg hover:bg-cta-active transition-colors">Get Started</a>
+                    <div class="flex items-center space-x-4">
+                        <a href="{% url 'account_login' %}" class="nav-link group text-copy-secondary">
+                            <span class="relative">
+                                Sign In
+                                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-cta transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
+                            </span>
+                        </a>
+                        <a href="{% url 'account_signup' %}" 
+                           class="px-4 py-2 rounded-lg bg-cta text-white hover:bg-cta-hover transform hover:scale-105 transition-all duration-200">
+                            Get Started
+                        </a>
+                    </div>
                 {% endif %}
             </div>
 
-            <!-- Mobile Menu Button -->
+            {# Mobile Menu Button #}
             <div class="flex items-center md:hidden">
-                <button type="button" class="text-copy-secondary hover:text-copy-primary" aria-label="Toggle menu">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <button type="button" id="mobile-menu-button"
+                        class="p-2 rounded-md text-copy-secondary hover:text-copy-primary hover:bg-background transition-colors duration-200">
+                    <svg class="h-6 w-6 transform transition-transform duration-200" id="menu-open" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <svg class="h-6 w-6 hidden transform transition-transform duration-200" id="menu-close" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Mobile Menu -->
-    <div class="hidden md:hidden">
-        <div class="px-2 pt-2 pb-3 space-y-1">
-            <a href="/" class="block text-copy-secondary hover:text-copy-primary px-3 py-2 rounded-md">Home</a>
-            <a href="/docs" class="block text-copy-secondary hover:text-copy-primary px-3 py-2 rounded-md">Documentation</a>
+    {# Mobile Menu #}
+    <div class="hidden md:hidden transform transition-all duration-200 ease-in-out" id="mobile-menu">
+        <div class="px-4 pt-2 pb-3 space-y-1 border-t border-border bg-card shadow-lg">
+            <a href="/" class="mobile-nav-link {% if request.path == '/' %}text-copy-primary font-medium{% else %}text-copy-secondary{% endif %}">
+                Home
+            </a>
+            <a href="/docs" class="mobile-nav-link {% if request.path == '/docs' %}text-copy-primary font-medium{% else %}text-copy-secondary{% endif %}">
+                Documentation
+            </a>
+            
             {% if user.is_authenticated %}
-                <a href="{% url 'account_email' %}" class="block text-copy-secondary hover:text-copy-primary px-3 py-2 rounded-md">Settings</a>
-                <a href="{% url 'account_logout' %}" class="block text-copy-secondary hover:text-copy-primary px-3 py-2 rounded-md">Sign Out</a>
+                <div class="border-t border-border my-2"></div>
+                <div class="px-2 py-2">
+                    <p class="text-sm font-medium text-copy-primary">{{ user.username }}</p>
+                    <p class="text-sm text-copy-secondary">{{ user.email }}</p>
+                </div>
+                <a href="{% url 'account_email' %}" class="mobile-nav-link text-copy-secondary">
+                    Settings
+                </a>
+                <a href="{% url 'account_logout' %}" class="mobile-nav-link text-red-600 hover:bg-red-50">
+                    Sign Out
+                </a>
             {% else %}
-                <a href="{% url 'account_login' %}" class="block text-copy-secondary hover:text-copy-primary px-3 py-2 rounded-md">Sign In</a>
-                <a href="{% url 'account_signup' %}" class="block bg-cta text-cta-text px-3 py-2 rounded-md hover:bg-cta-active">Get Started</a>
+                <div class="border-t border-border my-2"></div>
+                <a href="{% url 'account_login' %}" class="mobile-nav-link text-copy-secondary">
+                    Sign In
+                </a>
+                <a href="{% url 'account_signup' %}" 
+                   class="block px-4 py-2 mt-2 text-center rounded-lg bg-cta text-white hover:bg-cta-hover transform hover:scale-105 transition-all duration-200">
+                    Get Started
+                </a>
             {% endif %}
         </div>
     </div>
 </nav>
 
+<style>
+    .nav-link {
+        @apply px-3 py-2 rounded-md transition-all duration-200;
+    }
+    .mobile-nav-link {
+        @apply block px-2 py-2 rounded-md hover:bg-background transition-all duration-200;
+    }
+</style>
+
 <script>
-    // Mobile menu toggle
-    document.querySelector('button[aria-label="Toggle menu"]').addEventListener('click', function() {
-        const mobileMenu = document.querySelector('.md\\:hidden:not(.flex)');
+    // Mobile menu functionality with smooth transitions
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuOpenIcon = document.getElementById('menu-open');
+    const menuCloseIcon = document.getElementById('menu-close');
+
+    menuButton.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
+        menuOpenIcon.classList.toggle('hidden');
+        menuCloseIcon.classList.toggle('hidden');
+        
+        // Add rotation animation to icons
+        if (menuOpenIcon.classList.contains('hidden')) {
+            menuCloseIcon.classList.add('rotate-180');
+        } else {
+            menuCloseIcon.classList.remove('rotate-180');
+        }
     });
 </script>
