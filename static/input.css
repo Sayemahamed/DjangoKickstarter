@@ -1,4 +1,6 @@
 @tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   :root {
@@ -15,6 +17,3 @@
     --color-text: 243 244 246;
   }
 }
-
-@tailwind components;
-@tailwind utilities;
