@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+<div class="min-h-screen bg-background">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Welcome Section -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-copy-primary">Welcome, {{ user.get_full_name|default:user.email }}</h1>
+            <p class="text-copy-secondary mt-2">Manage your account and view your activity</p>
+        </div>
+
+        <!-- Dashboard Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Profile Card -->
+            <div class="bg-card p-6 rounded-lg border border-border">
+                <h2 class="text-xl font-semibold text-copy-primary mb-4">Profile</h2>
+                <div class="space-y-3">
+                    <p class="text-copy-secondary">Email: {{ user.email }}</p>
+                    <p class="text-copy-secondary">Joined: {{ user.date_joined|date }}</p>
+                    <a href="{% url 'account_profile' %}" class="block text-cta hover:text-cta-active">Edit Profile →</a>
+                </div>
+            </div>
+
+            <!-- Security Card -->
+            <div class="bg-card p-6 rounded-lg border border-border">
+                <h2 class="text-xl font-semibold text-copy-primary mb-4">Security</h2>
+                <div class="space-y-3">
+                    <a href="{% url 'account_change_password' %}" class="block text-cta hover:text-cta-active">Change Password →</a>
+                    <a href="{% url 'socialaccount_connections' %}" class="block text-cta hover:text-cta-active">Manage Social Accounts →</a>
+                </div>
+            </div>
+
+            <!-- Activity Card -->
+            <div class="bg-card p-6 rounded-lg border border-border">
+                <h2 class="text-xl font-semibold text-copy-primary mb-4">Recent Activity</h2>
+                <p class="text-copy-secondary">No recent activity to show.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

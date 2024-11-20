@@ -17,11 +17,20 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
-from django.urls.resolvers import URLResolver
+from django.conf import settings
+from django.conf.urls.static import static
 
-urlpatterns: list[URLResolver] = [
-    path(route="admin/", view=admin.site.urls),
-    path(route="", view=include(arg="core.urls")),
-    path(route="accounts/", view=include(arg="allauth.urls")),
-    path(route="__reload__/", view=include(arg="django_browser_reload.urls")),
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('core.urls')),
+    path('accounts/', include('allauth.urls')),
+    path('__reload__/', include('django_browser_reload.urls')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+handler404 = 'Kickstarter.views.handler404'
+handler500 = 'Kickstarter.views.handler500'
+handler403 = 'Kickstarter.views.handler403'

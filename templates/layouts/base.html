@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<div class="max-w-7xl mx-auto min-h-screen bg-background flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
-    {% block content %}{% endblock content %}
+<div class="min-h-screen bg-background ">
+    <div class="flex items-center justify-center mx-auto px-2 sm:px-4 lg:px-6 py-8">
+        {% block content %}{% endblock content %}
+    </div>
 </div>
 {% endblock body %}

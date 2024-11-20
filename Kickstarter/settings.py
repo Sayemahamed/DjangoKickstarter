@@ -29,9 +29,9 @@ STATICFILES_DIRS: list[str] = [
 SECRET_KEY = "@xrl+$k(l%pu4l89$+rro&ex7uu3+!n682rj(978dlm0dt297f"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS: list[str] = ["*"]
+ALLOWED_HOSTS: list[str] = ["localhost", "127.0.0.1"]
 ACCOUNT_AUTHENTICATION_METHOD: str = "email"
 ACCOUNT_EMAIL_REQUIRED: bool = True
 ACCOUNT_EMAIL_VERIFICATION: str = "optional"
