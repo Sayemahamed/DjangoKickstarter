@@ -4,3 +4,4 @@ django-widget-tweaks
 django-browser-reload
 python-dotenv
 black
+python-decouple
