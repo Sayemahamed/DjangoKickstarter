@@ -4,6 +4,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import UserForm, ProfileForm
 from django.db import transaction
+from allauth.socialaccount.models import SocialAccount
+from allauth.socialaccount import providers
+from allauth.socialaccount.providers.base import ProviderException
 
 
 # Create your views here.
@@ -29,7 +32,27 @@ def profile(request):
         user_form = UserForm(instance=request.user)
         profile_form = ProfileForm(instance=request.user.profile)
 
+    # Get connected social accounts
+    social_accounts = SocialAccount.objects.filter(user=request.user)
+    connected_providers = [account.provider for account in social_accounts]
+
+    # Get available providers
+    available_providers = []
+    provider_list = providers.registry.provider_map.values()
+    for provider in provider_list:
+        try:
+            if provider.id not in connected_providers:
+                available_providers.append({
+                    'id': provider.id,
+                    'name': provider.name,
+                })
+        except ProviderException:
+            continue
+
     return render(request, 'core/profile.html', {
         'user_form': user_form,
         'profile_form': profile_form,
+        'social_accounts': social_accounts,
+        'available_providers': available_providers,
+        'connected_providers': connected_providers,
     })

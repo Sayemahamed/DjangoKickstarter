@@ -17,16 +17,10 @@ class UserForm(forms.ModelForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ('avatar', 'bio', 'birth_date', 'location', 'phone_number', 'website')
+        fields = ('avatar', 'gender', 'location', 'phone_number')
         widgets = {
-            'bio': forms.Textarea(attrs={
-                'class': 'form-textarea',
-                'rows': 4,
-                'placeholder': 'Tell us about yourself...'
-            }),
-            'birth_date': forms.DateInput(attrs={
-                'class': 'form-input',
-                'type': 'date'
+            'gender': forms.Select(attrs={
+                'class': 'form-select'
             }),
             'location': forms.TextInput(attrs={
                 'class': 'form-input',
@@ -35,9 +29,5 @@ class ProfileForm(forms.ModelForm):
             'phone_number': forms.TextInput(attrs={
                 'class': 'form-input',
                 'placeholder': '+1234567890'
-            }),
-            'website': forms.URLInput(attrs={
-                'class': 'form-input',
-                'placeholder': 'https://example.com'
             }),
         }
