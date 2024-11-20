@@ -43,18 +43,33 @@
                         </a>
                         <div class="relative">
                             <select id="theme-selector" class="bg-card text-copy-primary border border-border rounded-md px-3 py-2 cursor-pointer hover:border-accent focus:outline-none focus:ring-2 focus:ring-accent">
-                                <option value="default">Default Theme</option>
-                                <option value="theme-pink">Pink</option>
-                                <option value="theme-green">Green</option>
-                                <option value="theme-blue">Blue</option>
-                                <option value="theme-tokyo">Tokyo</option>
-                                <option value="theme-cyberpunk">Cyberpunk</option>
-                                <option value="theme-forest">Forest</option>
-                                <option value="theme-nord">Nord</option>
-                                <option value="theme-dracula">Dracula</option>
-                                <option value="theme-monokai">Monokai</option>
-                                <option value="theme-solarized-light">Solarized Light</option>
-                                <option value="theme-gruvbox">Gruvbox</option>
+                                <option value="">Default Light</option>
+                                
+                                {# Light Themes #}
+                                <optgroup label="Light Themes">
+                                    <option value="theme-github-light">GitHub Light</option>
+                                    <option value="theme-solarized-light">Solarized Light Pro</option>
+                                    <option value="theme-material-light">Material Light</option>
+                                    <option value="theme-tailwind-light">Tailwind Light</option>
+                                    <option value="theme-mint-light">Mint Light</option>
+                                    <option value="theme-rose-light">Rose Light</option>
+                                    <option value="theme-sky-light">Sky Light</option>
+                                    <option value="theme-amber-light">Amber Light</option>
+                                    <option value="theme-slate-light">Slate Light</option>
+                                </optgroup>
+
+                                {# Dark Themes #}
+                                <optgroup label="Dark Themes">
+                                    <option value="theme-tokyo">Tokyo Night</option>
+                                    <option value="theme-cyberpunk">Cyberpunk Night</option>
+                                    <option value="theme-dracula">Dracula Pro</option>
+                                    <option value="theme-one-dark">One Dark Pro</option>
+                                    <option value="theme-github-dark">GitHub Dark</option>
+                                    <option value="theme-material-ocean">Material Ocean</option>
+                                    <option value="theme-nord">Nord Dark</option>
+                                    <option value="theme-monokai">Monokai Pro</option>
+                                    <option value="theme-synthwave">Synthwave</option>
+                                </optgroup>
                             </select>
                         </div>
                         <a href="{% url 'account_logout' %}" 
