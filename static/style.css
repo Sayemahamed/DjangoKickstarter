@@ -627,6 +627,31 @@ video {
 
 /* Blue Theme */
 
+.theme-blue {
+  --color-primary: 59 130 246;
+  /* Blue-500 */
+  --color-secondary: 147 197 253;
+  /* Blue-300 */
+  --color-accent: 37 99 235;
+  /* Blue-600 */
+  --color-text: 31 41 55;
+  --background: 239, 246, 255;
+  /* Blue-50 */
+  --border: 191, 219, 254;
+  /* Blue-200 */
+  --card: 219, 234, 254;
+  /* Blue-100 */
+  --copy-primary: 30, 64, 175;
+  /* Blue-800 */
+  --copy-secondary: 37, 99, 235;
+  /* Blue-600 */
+  --cta: 59, 130, 246;
+  /* Blue-500 */
+  --cta-active: 37, 99, 235;
+  /* Blue-600 */
+  --cta-text: 255, 255, 255;
+}
+
 /* Tokyo Theme (Dark) */
 
 .theme-tokyo {
@@ -657,7 +682,248 @@ video {
 
 /* Cyberpunk Theme */
 
+.theme-cyberpunk {
+  --color-primary: 244 63 94;
+  /* Rose-500 */
+  --color-secondary: 234 179 8;
+  /* Yellow-500 */
+  --color-accent: 45 212 191;
+  /* Teal-400 */
+  --color-text: 250 250 250;
+  --background: 3, 7, 18;
+  /* Dark blue-black */
+  --border: 244, 63, 94;
+  /* Rose-500 */
+  --card: 15, 23, 42;
+  /* Slate-900 */
+  --copy-primary: 250, 250, 250;
+  /* White */
+  --copy-secondary: 45, 212, 191;
+  /* Teal-400 */
+  --cta: 244, 63, 94;
+  /* Rose-500 */
+  --cta-active: 225, 29, 72;
+  /* Rose-600 */
+  --cta-text: 250, 250, 250;
+}
+
 /* Forest Theme */
+
+.theme-forest {
+  --color-primary: 20 83 45;
+  /* Green-800 */
+  --color-secondary: 167 243 208;
+  /* Green-200 */
+  --color-accent: 34 197 94;
+  /* Green-500 */
+  --color-text: 20 83 45;
+  --background: 240, 253, 244;
+  /* Green-50 */
+  --border: 187, 247, 208;
+  /* Green-200 */
+  --card: 220, 252, 231;
+  /* Green-100 */
+  --copy-primary: 20, 83, 45;
+  /* Green-800 */
+  --copy-secondary: 22, 163, 74;
+  /* Green-600 */
+  --cta: 34, 197, 94;
+  /* Green-500 */
+  --cta-active: 22, 163, 74;
+  /* Green-600 */
+  --cta-text: 255, 255, 255;
+}
+
+/* Nord Theme */
+
+.theme-nord {
+  --color-primary: 94 129 172;
+  /* Nord-9 */
+  --color-secondary: 136 192 208;
+  /* Nord-8 */
+  --color-accent: 129 161 193;
+  /* Nord-10 */
+  --color-text: 46 52 64;
+  /* Nord-0 */
+  --background: 236, 239, 244;
+  /* Nord-6 */
+  --border: 216, 222, 233;
+  /* Nord-4 */
+  --card: 229, 233, 240;
+  /* Nord-5 */
+  --copy-primary: 46, 52, 64;
+  /* Nord-0 */
+  --copy-secondary: 67, 76, 94;
+  /* Nord-1 */
+  --cta: 94, 129, 172;
+  /* Nord-9 */
+  --cta-active: 76, 86, 106;
+  /* Nord-2 */
+  --cta-text: 236, 239, 244;
+  /* Nord-6 */
+}
+
+/* Dracula Theme */
+
+.theme-dracula {
+  --color-primary: 98 114 164;
+  /* Dracula Purple */
+  --color-secondary: 68 71 90;
+  /* Dracula Current Line */
+  --color-accent: 255 121 198;
+  /* Dracula Pink */
+  --color-text: 248 248 242;
+  /* Dracula Foreground */
+  --background: 40, 42, 54;
+  /* Dracula Background */
+  --border: 68, 71, 90;
+  /* Dracula Current Line */
+  --card: 68, 71, 90;
+  /* Dracula Current Line */
+  --copy-primary: 248, 248, 242;
+  /* Dracula Foreground */
+  --copy-secondary: 139, 233, 253;
+  /* Dracula Cyan */
+  --cta: 80, 250, 123;
+  /* Dracula Green */
+  --cta-active: 255, 184, 108;
+  /* Dracula Orange */
+  --cta-text: 40, 42, 54;
+  /* Dracula Background */
+}
+
+/* Monokai Theme */
+
+.theme-monokai {
+  --color-primary: 249 38 114;
+  /* Monokai Pink */
+  --color-secondary: 102 217 239;
+  /* Monokai Blue */
+  --color-accent: 166 226 46;
+  /* Monokai Green */
+  --color-text: 248 248 242;
+  /* Monokai White */
+  --background: 39, 40, 34;
+  /* Monokai Background */
+  --border: 73, 72, 62;
+  /* Monokai Gray */
+  --card: 51, 51, 45;
+  /* Monokai Light Background */
+  --copy-primary: 248, 248, 242;
+  /* Monokai White */
+  --copy-secondary: 253, 151, 31;
+  /* Monokai Orange */
+  --cta: 166, 226, 46;
+  /* Monokai Green */
+  --cta-active: 249, 38, 114;
+  /* Monokai Pink */
+  --cta-text: 39, 40, 34;
+  /* Monokai Background */
+}
+
+/* Solarized Light Theme */
+
+.theme-solarized-light {
+  --color-primary: 181 137 0;
+  /* Yellow */
+  --color-secondary: 42 161 152;
+  /* Cyan */
+  --color-accent: 203 75 22;
+  /* Orange */
+  --color-text: 88 110 117;
+  /* Base01 */
+  --background: 253, 246, 227;
+  /* Base3 */
+  --border: 238, 232, 213;
+  /* Base2 */
+  --card: 238, 232, 213;
+  /* Base2 */
+  --copy-primary: 88, 110, 117;
+  /* Base01 */
+  --copy-secondary: 131, 148, 150;
+  /* Base0 */
+  --cta: 38, 139, 210;
+  /* Blue */
+  --cta-active: 108, 113, 196;
+  /* Violet */
+  --cta-text: 253, 246, 227;
+  /* Base3 */
+}
+
+/* Gruvbox Theme */
+
+.theme-gruvbox {
+  --color-primary: 215 153 33;
+  /* Bright Yellow */
+  --color-secondary: 168 153 132;
+  /* Gray */
+  --color-accent: 250 189 47;
+  /* Yellow */
+  --color-text: 251 241 199;
+  /* Light0 */
+  --background: 40, 40, 40;
+  /* Dark0 */
+  --border: 60, 56, 54;
+  /* Dark1 */
+  --card: 80, 73, 69;
+  /* Dark2 */
+  --copy-primary: 251, 241, 199;
+  /* Light0 */
+  --copy-secondary: 213, 196, 161;
+  /* Light2 */
+  --cta: 184, 187, 38;
+  /* Green */
+  --cta-active: 251, 73, 52;
+  /* Red */
+  --cta-text: 251, 241, 199;
+  /* Light0 */
+}
+
+.nav-link {
+  border-radius: 0.375rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+.nav-link:hover {
+  color: rgb(var(--copy-primary));
+}
+
+.nav-link.active {
+  font-weight: 500;
+  color: rgb(var(--copy-primary));
+}
+
+.mobile-menu-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem;
+  padding: 0.5rem;
+  color: rgb(var(--copy-secondary));
+}
+
+.mobile-menu-button:hover {
+  background-color: rgb(var(--background));
+  color: rgb(var(--copy-primary));
+}
+
+.mobile-menu-button:focus {
+  border-color: rgb(var(--accent));
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  .mobile-menu {
+    display: none;
+  }
+}
 
 .sr-only {
   position: absolute;
@@ -727,11 +993,6 @@ video {
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
-}
-
-.my-2 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
 }
 
 .my-4 {
@@ -927,11 +1188,6 @@ video {
   flex-shrink: 0;
 }
 
-.rotate-180 {
-  --tw-rotate: 180deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
 .scale-x-0 {
   --tw-scale-x: 0;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -939,6 +1195,10 @@ video {
 
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .list-inside {
@@ -1182,10 +1442,6 @@ video {
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
-}
-
-.p-2 {
-  padding: 0.5rem;
 }
 
 .p-3 {
@@ -1522,18 +1778,12 @@ video {
   transition-duration: 200ms;
 }
 
-.ease-in-out {
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 .ease-out {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
-.hover\:scale-105:hover {
-  --tw-scale-x: 1.05;
-  --tw-scale-y: 1.05;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+.hover\:border-accent:hover {
+  border-color: rgb(var(--accent));
 }
 
 .hover\:border-cta:hover {
@@ -1560,11 +1810,6 @@ video {
 .hover\:bg-red-100:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(254 226 226 / var(--tw-bg-opacity, 1));
-}
-
-.hover\:bg-red-50:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 242 242 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:text-copy-primary:hover {
@@ -1611,6 +1856,10 @@ video {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+.focus\:ring-accent:focus {
+  --tw-ring-color: rgb(var(--accent));
 }
 
 .focus\:ring-cta:focus {

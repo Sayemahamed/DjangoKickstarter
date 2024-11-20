@@ -114,4 +114,124 @@
     --cta-active: 22, 163, 74;       /* Green-600 */
     --cta-text: 255, 255, 255;
   }
+
+  /* Nord Theme */
+  .theme-nord {
+    --color-primary: 94 129 172;      /* Nord-9 */
+    --color-secondary: 136 192 208;   /* Nord-8 */
+    --color-accent: 129 161 193;      /* Nord-10 */
+    --color-text: 46 52 64;           /* Nord-0 */
+    --background: 236, 239, 244;      /* Nord-6 */
+    --border: 216, 222, 233;          /* Nord-4 */
+    --card: 229, 233, 240;            /* Nord-5 */
+    --copy-primary: 46, 52, 64;       /* Nord-0 */
+    --copy-secondary: 67, 76, 94;     /* Nord-1 */
+    --cta: 94, 129, 172;             /* Nord-9 */
+    --cta-active: 76, 86, 106;       /* Nord-2 */
+    --cta-text: 236, 239, 244;       /* Nord-6 */
+  }
+
+  /* Dracula Theme */
+  .theme-dracula {
+    --color-primary: 98 114 164;      /* Dracula Purple */
+    --color-secondary: 68 71 90;      /* Dracula Current Line */
+    --color-accent: 255 121 198;      /* Dracula Pink */
+    --color-text: 248 248 242;        /* Dracula Foreground */
+    --background: 40, 42, 54;         /* Dracula Background */
+    --border: 68, 71, 90;             /* Dracula Current Line */
+    --card: 68, 71, 90;               /* Dracula Current Line */
+    --copy-primary: 248, 248, 242;    /* Dracula Foreground */
+    --copy-secondary: 139, 233, 253;  /* Dracula Cyan */
+    --cta: 80, 250, 123;             /* Dracula Green */
+    --cta-active: 255, 184, 108;     /* Dracula Orange */
+    --cta-text: 40, 42, 54;          /* Dracula Background */
+  }
+
+  /* Monokai Theme */
+  .theme-monokai {
+    --color-primary: 249 38 114;      /* Monokai Pink */
+    --color-secondary: 102 217 239;   /* Monokai Blue */
+    --color-accent: 166 226 46;       /* Monokai Green */
+    --color-text: 248 248 242;        /* Monokai White */
+    --background: 39, 40, 34;         /* Monokai Background */
+    --border: 73, 72, 62;             /* Monokai Gray */
+    --card: 51, 51, 45;               /* Monokai Light Background */
+    --copy-primary: 248, 248, 242;    /* Monokai White */
+    --copy-secondary: 253, 151, 31;   /* Monokai Orange */
+    --cta: 166, 226, 46;             /* Monokai Green */
+    --cta-active: 249, 38, 114;      /* Monokai Pink */
+    --cta-text: 39, 40, 34;          /* Monokai Background */
+  }
+
+  /* Solarized Light Theme */
+  .theme-solarized-light {
+    --color-primary: 181 137 0;       /* Yellow */
+    --color-secondary: 42 161 152;    /* Cyan */
+    --color-accent: 203 75 22;        /* Orange */
+    --color-text: 88 110 117;         /* Base01 */
+    --background: 253, 246, 227;      /* Base3 */
+    --border: 238, 232, 213;          /* Base2 */
+    --card: 238, 232, 213;            /* Base2 */
+    --copy-primary: 88, 110, 117;     /* Base01 */
+    --copy-secondary: 131, 148, 150;  /* Base0 */
+    --cta: 38, 139, 210;             /* Blue */
+    --cta-active: 108, 113, 196;     /* Violet */
+    --cta-text: 253, 246, 227;       /* Base3 */
+  }
+
+  /* Gruvbox Theme */
+  .theme-gruvbox {
+    --color-primary: 215 153 33;      /* Bright Yellow */
+    --color-secondary: 168 153 132;   /* Gray */
+    --color-accent: 250 189 47;       /* Yellow */
+    --color-text: 251 241 199;        /* Light0 */
+    --background: 40, 40, 40;         /* Dark0 */
+    --border: 60, 56, 54;             /* Dark1 */
+    --card: 80, 73, 69;               /* Dark2 */
+    --copy-primary: 251, 241, 199;    /* Light0 */
+    --copy-secondary: 213, 196, 161;  /* Light2 */
+    --cta: 184, 187, 38;             /* Green */
+    --cta-active: 251, 73, 52;       /* Red */
+    --cta-text: 251, 241, 199;       /* Light0 */
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply px-3 py-2 rounded-md transition-all duration-200;
+  }
+
+  .nav-link:hover {
+    @apply text-copy-primary;
+  }
+
+  .nav-link.active {
+    @apply text-copy-primary font-medium;
+  }
+
+  .mobile-menu-button {
+    @apply inline-flex items-center justify-center p-2 rounded-md text-copy-secondary hover:text-copy-primary hover:bg-background focus:outline-none focus:border-accent;
+  }
+
+  .mobile-menu {
+    @apply md:hidden;
+  }
+}
+
+@layer utilities {
+  .mobile-menu-enter {
+    @apply transform opacity-0 scale-95;
+  }
+
+  .mobile-menu-enter-active {
+    @apply transform opacity-100 scale-100 transition ease-out duration-100;
+  }
+
+  .mobile-menu-exit {
+    @apply transform opacity-100 scale-100;
+  }
+
+  .mobile-menu-exit-active {
+    @apply transform opacity-0 scale-95 transition ease-in duration-75;
+  }
 }

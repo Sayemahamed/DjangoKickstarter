@@ -41,6 +41,22 @@
                                 <span class="absolute bottom-0 left-0 w-full h-0.5 bg-cta transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
                             </span>
                         </a>
+                        <div class="relative">
+                            <select id="theme-selector" class="bg-card text-copy-primary border border-border rounded-md px-3 py-2 cursor-pointer hover:border-accent focus:outline-none focus:ring-2 focus:ring-accent">
+                                <option value="default">Default Theme</option>
+                                <option value="theme-pink">Pink</option>
+                                <option value="theme-green">Green</option>
+                                <option value="theme-blue">Blue</option>
+                                <option value="theme-tokyo">Tokyo</option>
+                                <option value="theme-cyberpunk">Cyberpunk</option>
+                                <option value="theme-forest">Forest</option>
+                                <option value="theme-nord">Nord</option>
+                                <option value="theme-dracula">Dracula</option>
+                                <option value="theme-monokai">Monokai</option>
+                                <option value="theme-solarized-light">Solarized Light</option>
+                                <option value="theme-gruvbox">Gruvbox</option>
+                            </select>
+                        </div>
                         <a href="{% url 'account_logout' %}" 
                            class="px-4 py-2 rounded-lg border border-border text-copy-primary hover:bg-background hover:border-cta transition-all duration-200">
                             Sign Out
@@ -55,22 +71,19 @@
                             </span>
                         </a>
                         <a href="{% url 'account_signup' %}" 
-                           class="px-4 py-2 rounded-lg bg-cta text-white hover:bg-cta-hover transform hover:scale-105 transition-all duration-200">
-                            Get Started
+                           class="px-4 py-2 rounded-lg bg-cta text-cta-text hover:bg-cta-active transition-all duration-200">
+                            Sign Up
                         </a>
                     </div>
                 {% endif %}
             </div>
 
             {# Mobile Menu Button #}
-            <div class="flex items-center md:hidden">
-                <button type="button" id="mobile-menu-button"
-                        class="p-2 rounded-md text-copy-secondary hover:text-copy-primary hover:bg-background transition-colors duration-200">
-                    <svg class="h-6 w-6 transform transition-transform duration-200" id="menu-open" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div class="flex md:hidden">
+                <button type="button" class="mobile-menu-button" aria-controls="mobile-menu" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                    <svg class="h-6 w-6 hidden transform transition-transform duration-200" id="menu-close" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
@@ -78,70 +91,32 @@
     </div>
 
     {# Mobile Menu #}
-    <div class="hidden md:hidden transform transition-all duration-200 ease-in-out" id="mobile-menu">
-        <div class="px-4 pt-2 pb-3 space-y-1 border-t border-border bg-card shadow-lg">
-            <a href="/" class="mobile-nav-link {% if request.path == '/' %}text-copy-primary font-medium{% else %}text-copy-secondary{% endif %}">
+    <div class="mobile-menu hidden" id="mobile-menu">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+            <a href="/" class="nav-link block {% if request.path == '/' %}text-copy-primary font-medium{% else %}text-copy-secondary{% endif %}">
                 Home
             </a>
-            <a href="/docs" class="mobile-nav-link {% if request.path == '/docs' %}text-copy-primary font-medium{% else %}text-copy-secondary{% endif %}">
+            <a href="/docs" class="nav-link block {% if request.path == '/docs' %}text-copy-primary font-medium{% else %}text-copy-secondary{% endif %}">
                 Documentation
             </a>
-            
             {% if user.is_authenticated %}
-                <div class="border-t border-border my-2"></div>
-                <div class="px-2 py-2">
-                    <p class="text-sm font-medium text-copy-primary">{{ user.username }}</p>
-                    <p class="text-sm text-copy-secondary">{{ user.email }}</p>
-                </div>
-                <a href="{% url 'core:profile' %}" class="mobile-nav-link text-copy-secondary">
+                <a href="{% url 'core:profile' %}" class="nav-link block text-copy-secondary">
                     Profile
                 </a>
-                <a href="{% url 'account_email' %}" class="mobile-nav-link text-copy-secondary">
+                <a href="{% url 'account_email' %}" class="nav-link block text-copy-secondary">
                     Settings
                 </a>
-                <a href="{% url 'account_logout' %}" class="mobile-nav-link text-red-600 hover:bg-red-50">
+                <a href="{% url 'account_logout' %}" class="nav-link block text-copy-secondary">
                     Sign Out
                 </a>
             {% else %}
-                <div class="border-t border-border my-2"></div>
-                <a href="{% url 'account_login' %}" class="mobile-nav-link text-copy-secondary">
+                <a href="{% url 'account_login' %}" class="nav-link block text-copy-secondary">
                     Sign In
                 </a>
-                <a href="{% url 'account_signup' %}" 
-                   class="block px-4 py-2 mt-2 text-center rounded-lg bg-cta text-white hover:bg-cta-hover transform hover:scale-105 transition-all duration-200">
-                    Get Started
+                <a href="{% url 'account_signup' %}" class="nav-link block text-copy-secondary">
+                    Sign Up
                 </a>
             {% endif %}
         </div>
     </div>
 </nav>
-
-<style>
-    .nav-link {
-        @apply px-3 py-2 rounded-md transition-all duration-200;
-    }
-    .mobile-nav-link {
-        @apply block px-2 py-2 rounded-md hover:bg-background transition-all duration-200;
-    }
-</style>
-
-<script>
-    // Mobile menu functionality with smooth transitions
-    const menuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuOpenIcon = document.getElementById('menu-open');
-    const menuCloseIcon = document.getElementById('menu-close');
-
-    menuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        menuOpenIcon.classList.toggle('hidden');
-        menuCloseIcon.classList.toggle('hidden');
-        
-        // Add rotation animation to icons
-        if (menuOpenIcon.classList.contains('hidden')) {
-            menuCloseIcon.classList.add('rotate-180');
-        } else {
-            menuCloseIcon.classList.remove('rotate-180');
-        }
-    });
-</script>
