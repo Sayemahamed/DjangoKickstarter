@@ -5,194 +5,249 @@
 @layer base {
   /* Default Light Theme */
   :root {
-    --color-primary: 255 255 255;
-    --color-secondary: 243 244 246;
-    --color-accent: 59 130 246;
-    --color-text: 31 41 55;
-    --background: 255, 255, 255;
-    --border: 229, 231, 235;
-    --card: 249, 250, 251;
-    --copy-primary: 17, 24, 39;
-    --copy-secondary: 107, 114, 128;
-    --cta: 99, 102, 241;
-    --cta-active: 79, 70, 229;
-    --cta-text: 255, 255, 255;
+    --background: 255, 255, 255;      /* White */
+    --card: 249, 250, 251;           /* Gray 50 */
+    --border: 229, 231, 235;         /* Gray 200 */
+    --copy-primary: 17, 24, 39;      /* Gray 900 */
+    --copy-secondary: 75, 85, 99;    /* Gray 600 - Increased contrast */
+    --cta: 79, 70, 229;             /* Indigo 600 */
+    --cta-active: 67, 56, 202;      /* Indigo 700 */
+    --cta-text: 255, 255, 255;      /* White */
+    --accent: 99, 102, 241;         /* Indigo 500 */
   }
 
-  /* Pink Theme */
-  .theme-pink {
-    --color-primary: 236 72 153;      /* Pink-500 */
-    --color-secondary: 249 168 212;   /* Pink-300 */
-    --color-accent: 219 39 119;       /* Pink-600 */
-    --color-text: 31 41 55;
-    --background: 253, 242, 248;      /* Pink-50 */
-    --border: 251, 207, 232;          /* Pink-200 */
-    --card: 252, 231, 243;            /* Pink-100 */
-    --copy-primary: 157, 23, 77;      /* Pink-800 */
-    --copy-secondary: 219, 39, 119;   /* Pink-600 */
-    --cta: 236, 72, 153;             /* Pink-500 */
-    --cta-active: 219, 39, 119;      /* Pink-600 */
-    --cta-text: 255, 255, 255;
+  /* GitHub Light Theme */
+  .theme-github-light {
+    --background: 255, 255, 255;      /* White */
+    --card: 246, 248, 250;           /* Gray-50 */
+    --border: 208, 215, 222;         /* Gray-200 */
+    --copy-primary: 36, 41, 47;      /* Gray-900 */
+    --copy-secondary: 87, 96, 106;   /* Gray-600 */
+    --cta: 31, 111, 235;            /* Blue-600 */
+    --cta-active: 21, 101, 192;     /* Blue-700 */
+    --cta-text: 255, 255, 255;      /* White */
+    --accent: 3, 102, 214;          /* Blue-500 */
   }
 
-  /* Green Theme */
-  .theme-green {
-    --color-primary: 34 197 94;       /* Green-500 */
-    --color-secondary: 134 239 172;   /* Green-300 */
-    --color-accent: 22 163 74;        /* Green-600 */
-    --color-text: 31 41 55;
-    --background: 240, 253, 244;      /* Green-50 */
-    --border: 187, 247, 208;          /* Green-200 */
-    --card: 220, 252, 231;            /* Green-100 */
-    --copy-primary: 22, 101, 52;      /* Green-800 */
-    --copy-secondary: 22, 163, 74;    /* Green-600 */
-    --cta: 34, 197, 94;              /* Green-500 */
-    --cta-active: 22, 163, 74;       /* Green-600 */
-    --cta-text: 255, 255, 255;
-  }
-
-  /* Blue Theme */
-  .theme-blue {
-    --color-primary: 59 130 246;      /* Blue-500 */
-    --color-secondary: 147 197 253;   /* Blue-300 */
-    --color-accent: 37 99 235;        /* Blue-600 */
-    --color-text: 31 41 55;
-    --background: 239, 246, 255;      /* Blue-50 */
-    --border: 191, 219, 254;          /* Blue-200 */
-    --card: 219, 234, 254;            /* Blue-100 */
-    --copy-primary: 30, 64, 175;      /* Blue-800 */
-    --copy-secondary: 37, 99, 235;    /* Blue-600 */
-    --cta: 59, 130, 246;             /* Blue-500 */
-    --cta-active: 37, 99, 235;       /* Blue-600 */
-    --cta-text: 255, 255, 255;
-  }
-
-  /* Tokyo Theme (Dark) */
-  .theme-tokyo {
-    --color-primary: 113 42 161;      /* Purple-700 */
-    --color-secondary: 15 23 42;      /* Slate-900 */
-    --color-accent: 236 72 153;       /* Pink-500 */
-    --color-text: 226 232 240;        /* Slate-200 */
-    --background: 15, 23, 42;         /* Slate-900 */
-    --border: 51, 65, 85;             /* Slate-700 */
-    --card: 30, 41, 59;               /* Slate-800 */
-    --copy-primary: 226, 232, 240;    /* Slate-200 */
-    --copy-secondary: 148, 163, 184;  /* Slate-400 */
-    --cta: 236, 72, 153;             /* Pink-500 */
-    --cta-active: 219, 39, 119;      /* Pink-600 */
-    --cta-text: 255, 255, 255;
-  }
-
-  /* Cyberpunk Theme */
-  .theme-cyberpunk {
-    --color-primary: 244 63 94;       /* Rose-500 */
-    --color-secondary: 234 179 8;     /* Yellow-500 */
-    --color-accent: 45 212 191;       /* Teal-400 */
-    --color-text: 250 250 250;
-    --background: 3, 7, 18;           /* Dark blue-black */
-    --border: 244, 63, 94;            /* Rose-500 */
-    --card: 15, 23, 42;               /* Slate-900 */
-    --copy-primary: 250, 250, 250;    /* White */
-    --copy-secondary: 45, 212, 191;   /* Teal-400 */
-    --cta: 244, 63, 94;              /* Rose-500 */
-    --cta-active: 225, 29, 72;       /* Rose-600 */
-    --cta-text: 250, 250, 250;
-  }
-
-  /* Forest Theme */
-  .theme-forest {
-    --color-primary: 20 83 45;        /* Green-800 */
-    --color-secondary: 167 243 208;   /* Green-200 */
-    --color-accent: 34 197 94;        /* Green-500 */
-    --color-text: 20 83 45;
-    --background: 240, 253, 244;      /* Green-50 */
-    --border: 187, 247, 208;          /* Green-200 */
-    --card: 220, 252, 231;            /* Green-100 */
-    --copy-primary: 20, 83, 45;       /* Green-800 */
-    --copy-secondary: 22, 163, 74;    /* Green-600 */
-    --cta: 34, 197, 94;              /* Green-500 */
-    --cta-active: 22, 163, 74;       /* Green-600 */
-    --cta-text: 255, 255, 255;
-  }
-
-  /* Nord Theme */
-  .theme-nord {
-    --color-primary: 94 129 172;      /* Nord-9 */
-    --color-secondary: 136 192 208;   /* Nord-8 */
-    --color-accent: 129 161 193;      /* Nord-10 */
-    --color-text: 46 52 64;           /* Nord-0 */
-    --background: 236, 239, 244;      /* Nord-6 */
-    --border: 216, 222, 233;          /* Nord-4 */
-    --card: 229, 233, 240;            /* Nord-5 */
-    --copy-primary: 46, 52, 64;       /* Nord-0 */
-    --copy-secondary: 67, 76, 94;     /* Nord-1 */
-    --cta: 94, 129, 172;             /* Nord-9 */
-    --cta-active: 76, 86, 106;       /* Nord-2 */
-    --cta-text: 236, 239, 244;       /* Nord-6 */
-  }
-
-  /* Dracula Theme */
-  .theme-dracula {
-    --color-primary: 98 114 164;      /* Dracula Purple */
-    --color-secondary: 68 71 90;      /* Dracula Current Line */
-    --color-accent: 255 121 198;      /* Dracula Pink */
-    --color-text: 248 248 242;        /* Dracula Foreground */
-    --background: 40, 42, 54;         /* Dracula Background */
-    --border: 68, 71, 90;             /* Dracula Current Line */
-    --card: 68, 71, 90;               /* Dracula Current Line */
-    --copy-primary: 248, 248, 242;    /* Dracula Foreground */
-    --copy-secondary: 139, 233, 253;  /* Dracula Cyan */
-    --cta: 80, 250, 123;             /* Dracula Green */
-    --cta-active: 255, 184, 108;     /* Dracula Orange */
-    --cta-text: 40, 42, 54;          /* Dracula Background */
-  }
-
-  /* Monokai Theme */
-  .theme-monokai {
-    --color-primary: 249 38 114;      /* Monokai Pink */
-    --color-secondary: 102 217 239;   /* Monokai Blue */
-    --color-accent: 166 226 46;       /* Monokai Green */
-    --color-text: 248 248 242;        /* Monokai White */
-    --background: 39, 40, 34;         /* Monokai Background */
-    --border: 73, 72, 62;             /* Monokai Gray */
-    --card: 51, 51, 45;               /* Monokai Light Background */
-    --copy-primary: 248, 248, 242;    /* Monokai White */
-    --copy-secondary: 253, 151, 31;   /* Monokai Orange */
-    --cta: 166, 226, 46;             /* Monokai Green */
-    --cta-active: 249, 38, 114;      /* Monokai Pink */
-    --cta-text: 39, 40, 34;          /* Monokai Background */
-  }
-
-  /* Solarized Light Theme */
+  /* Solarized Light Pro Theme */
   .theme-solarized-light {
-    --color-primary: 181 137 0;       /* Yellow */
-    --color-secondary: 42 161 152;    /* Cyan */
-    --color-accent: 203 75 22;        /* Orange */
-    --color-text: 88 110 117;         /* Base01 */
     --background: 253, 246, 227;      /* Base3 */
-    --border: 238, 232, 213;          /* Base2 */
-    --card: 238, 232, 213;            /* Base2 */
-    --copy-primary: 88, 110, 117;     /* Base01 */
-    --copy-secondary: 131, 148, 150;  /* Base0 */
-    --cta: 38, 139, 210;             /* Blue */
-    --cta-active: 108, 113, 196;     /* Violet */
-    --cta-text: 253, 246, 227;       /* Base3 */
+    --card: 238, 232, 213;           /* Base2 */
+    --border: 147, 161, 161;         /* Base1 */
+    --copy-primary: 0, 43, 54;       /* Base03 */
+    --copy-secondary: 88, 110, 117;  /* Base01 */
+    --cta: 38, 139, 210;            /* Blue */
+    --cta-active: 108, 113, 196;    /* Violet */
+    --cta-text: 253, 246, 227;      /* Base3 */
+    --accent: 211, 54, 130;         /* Magenta */
   }
 
-  /* Gruvbox Theme */
-  .theme-gruvbox {
-    --color-primary: 215 153 33;      /* Bright Yellow */
-    --color-secondary: 168 153 132;   /* Gray */
-    --color-accent: 250 189 47;       /* Yellow */
-    --color-text: 251 241 199;        /* Light0 */
-    --background: 40, 40, 40;         /* Dark0 */
-    --border: 60, 56, 54;             /* Dark1 */
-    --card: 80, 73, 69;               /* Dark2 */
-    --copy-primary: 251, 241, 199;    /* Light0 */
-    --copy-secondary: 213, 196, 161;  /* Light2 */
-    --cta: 184, 187, 38;             /* Green */
-    --cta-active: 251, 73, 52;       /* Red */
-    --cta-text: 251, 241, 199;       /* Light0 */
+  /* Material Light Theme */
+  .theme-material-light {
+    --background: 255, 255, 255;      /* White */
+    --card: 245, 245, 245;           /* Gray-50 */
+    --border: 224, 224, 224;         /* Gray-200 */
+    --copy-primary: 33, 33, 33;      /* Gray-900 */
+    --copy-secondary: 66, 66, 66;    /* Gray-700 */
+    --cta: 25, 118, 210;            /* Blue-700 */
+    --cta-active: 21, 101, 192;     /* Blue-800 */
+    --cta-text: 255, 255, 255;      /* White */
+    --accent: 30, 136, 229;         /* Blue-600 */
+  }
+
+  /* Tailwind Light Theme */
+  .theme-tailwind-light {
+    --background: 255, 255, 255;      /* White */
+    --card: 249, 250, 251;           /* Gray-50 */
+    --border: 229, 231, 235;         /* Gray-200 */
+    --copy-primary: 17, 24, 39;      /* Gray-900 */
+    --copy-secondary: 55, 65, 81;    /* Gray-700 */
+    --cta: 37, 99, 235;             /* Blue-600 */
+    --cta-active: 29, 78, 216;      /* Blue-700 */
+    --cta-text: 255, 255, 255;      /* White */
+    --accent: 59, 130, 246;         /* Blue-500 */
+  }
+
+  /* Mint Light Theme */
+  .theme-mint-light {
+    --background: 247, 254, 231;      /* Mint-50 */
+    --card: 236, 253, 245;           /* Green-50 */
+    --border: 167, 243, 208;         /* Green-200 */
+    --copy-primary: 6, 78, 59;       /* Green-900 */
+    --copy-secondary: 17, 94, 89;    /* Teal-800 */
+    --cta: 16, 185, 129;            /* Green-500 */
+    --cta-active: 5, 150, 105;      /* Green-600 */
+    --cta-text: 255, 255, 255;      /* White */
+    --accent: 20, 184, 166;         /* Teal-500 */
+  }
+
+  /* Rose Light Theme */
+  .theme-rose-light {
+    --background: 255, 255, 255;      /* White */
+    --card: 255, 241, 242;           /* Rose-50 */
+    --border: 254, 205, 211;         /* Rose-200 */
+    --copy-primary: 159, 18, 57;     /* Rose-900 */
+    --copy-secondary: 190, 18, 60;   /* Rose-700 */
+    --cta: 244, 63, 94;             /* Rose-500 */
+    --cta-active: 225, 29, 72;      /* Rose-600 */
+    --cta-text: 255, 255, 255;      /* White */
+    --accent: 251, 113, 133;        /* Rose-400 */
+  }
+
+  /* Sky Light Theme */
+  .theme-sky-light {
+    --background: 255, 255, 255;      /* White */
+    --card: 240, 249, 255;           /* Sky-50 */
+    --border: 186, 230, 253;         /* Sky-200 */
+    --copy-primary: 12, 74, 110;     /* Sky-900 */
+    --copy-secondary: 7, 89, 133;    /* Sky-800 */
+    --cta: 14, 165, 233;            /* Sky-500 */
+    --cta-active: 2, 132, 199;      /* Sky-600 */
+    --cta-text: 255, 255, 255;      /* White */
+    --accent: 56, 189, 248;         /* Sky-400 */
+  }
+
+  /* Amber Light Theme */
+  .theme-amber-light {
+    --background: 255, 255, 255;      /* White */
+    --card: 255, 251, 235;           /* Amber-50 */
+    --border: 253, 230, 138;         /* Amber-200 */
+    --copy-primary: 120, 53, 15;     /* Amber-900 */
+    --copy-secondary: 146, 64, 14;   /* Amber-800 */
+    --cta: 245, 158, 11;            /* Amber-500 */
+    --cta-active: 217, 119, 6;      /* Amber-600 */
+    --cta-text: 255, 255, 255;      /* White */
+    --accent: 251, 191, 36;         /* Amber-400 */
+  }
+
+  /* Slate Light Theme */
+  .theme-slate-light {
+    --background: 255, 255, 255;      /* White */
+    --card: 248, 250, 252;           /* Slate-50 */
+    --border: 226, 232, 240;         /* Slate-200 */
+    --copy-primary: 15, 23, 42;      /* Slate-900 */
+    --copy-secondary: 51, 65, 85;    /* Slate-700 */
+    --cta: 71, 85, 105;             /* Slate-600 */
+    --cta-active: 51, 65, 85;       /* Slate-700 */
+    --cta-text: 255, 255, 255;      /* White */
+    --accent: 100, 116, 139;        /* Slate-500 */
+  }
+
+  /* Tokyo Night Theme (Dark) */
+  .theme-tokyo {
+    --background: 26, 27, 38;         /* Dark background */
+    --card: 36, 40, 59;              /* Darker card */
+    --border: 65, 69, 89;            /* Border color */
+    --copy-primary: 192, 202, 245;   /* Light text */
+    --copy-secondary: 169, 177, 214; /* Secondary text - Increased contrast */
+    --cta: 187, 154, 247;           /* Purple */
+    --cta-active: 221, 189, 248;    /* Light purple */
+    --cta-text: 26, 27, 38;         /* Dark background */
+    --accent: 255, 121, 198;        /* Pink */
+  }
+
+  /* Cyberpunk Night Theme */
+  .theme-cyberpunk {
+    --background: 17, 23, 39;         /* Darker background */
+    --card: 24, 31, 50;              /* Card background */
+    --border: 255, 86, 132;          /* Neon pink border */
+    --copy-primary: 236, 240, 255;   /* Bright text */
+    --copy-secondary: 0, 255, 240;   /* Cyan text */
+    --cta: 255, 86, 132;            /* Neon pink */
+    --cta-active: 255, 121, 198;    /* Light pink */
+    --cta-text: 17, 23, 39;         /* Dark background */
+    --accent: 0, 255, 240;          /* Cyan accent */
+  }
+
+  /* Dracula Pro Theme */
+  .theme-dracula {
+    --background: 22, 22, 30;         /* Darker background */
+    --card: 40, 42, 54;              /* Card background */
+    --border: 98, 114, 164;          /* Purple border */
+    --copy-primary: 248, 248, 242;   /* White text */
+    --copy-secondary: 139, 233, 253; /* Cyan text */
+    --cta: 255, 121, 198;           /* Pink */
+    --cta-active: 189, 147, 249;    /* Purple */
+    --cta-text: 22, 22, 30;         /* Dark background */
+    --accent: 80, 250, 123;         /* Green */
+  }
+
+  /* One Dark Pro Theme */
+  .theme-one-dark {
+    --background: 40, 44, 52;         /* Dark background */
+    --card: 33, 37, 43;              /* Darker card */
+    --border: 88, 92, 99;            /* Border color */
+    --copy-primary: 171, 178, 191;   /* Light text */
+    --copy-secondary: 229, 192, 123; /* Yellow text */
+    --cta: 198, 120, 221;           /* Purple */
+    --cta-active: 145, 221, 255;    /* Light blue */
+    --cta-text: 40, 44, 52;         /* Dark background */
+    --accent: 145, 221, 255;        /* Light blue accent */
+  }
+
+  /* GitHub Dark Theme */
+  .theme-github-dark {
+    --background: 13, 17, 23;         /* Dark background */
+    --card: 22, 27, 34;              /* Card background */
+    --border: 48, 54, 61;            /* Border color */
+    --copy-primary: 230, 237, 243;   /* Light text */
+    --copy-secondary: 139, 148, 158; /* Gray text */
+    --cta: 47, 129, 247;            /* Blue */
+    --cta-active: 88, 166, 255;     /* Light blue */
+    --cta-text: 255, 255, 255;      /* White */
+    --accent: 47, 129, 247;         /* Blue accent */
+  }
+
+  /* Material Ocean Theme */
+  .theme-material-ocean {
+    --background: 15, 17, 26;         /* Dark background */
+    --card: 25, 30, 44;              /* Card background */
+    --border: 64, 73, 97;            /* Border color */
+    --copy-primary: 242, 244, 249;   /* Light text */
+    --copy-secondary: 137, 221, 255; /* Light blue text */
+    --cta: 199, 146, 234;           /* Purple */
+    --cta-active: 255, 203, 107;    /* Yellow */
+    --cta-text: 15, 17, 26;         /* Dark background */
+    --accent: 137, 221, 255;        /* Light blue accent */
+  }
+
+  /* Nord Dark Theme */
+  .theme-nord-dark {
+    --background: 46, 52, 64;         /* Nord 0 */
+    --card: 59, 66, 82;              /* Nord 1 */
+    --border: 67, 76, 94;            /* Nord 2 */
+    --copy-primary: 236, 239, 244;   /* Nord 6 */
+    --copy-secondary: 129, 161, 193; /* Nord 9 */
+    --cta: 136, 192, 208;           /* Nord 8 */
+    --cta-active: 143, 188, 187;    /* Nord 7 */
+    --cta-text: 46, 52, 64;         /* Nord 0 */
+    --accent: 180, 142, 173;        /* Nord 15 */
+  }
+
+  /* Monokai Pro Theme */
+  .theme-monokai-pro {
+    --background: 45, 42, 46;         /* Background */
+    --card: 57, 53, 58;              /* Card */
+    --border: 78, 73, 79;            /* Border */
+    --copy-primary: 252, 252, 250;   /* White */
+    --copy-secondary: 255, 216, 102; /* Yellow */
+    --cta: 255, 97, 136;            /* Magenta */
+    --cta-active: 255, 216, 102;    /* Yellow */
+    --cta-text: 45, 42, 46;         /* Background */
+    --accent: 162, 224, 103;        /* Green */
+  }
+
+  /* Synthwave Theme */
+  .theme-synthwave {
+    --background: 39, 35, 67;         /* Dark purple */
+    --card: 46, 41, 79;              /* Lighter purple */
+    --border: 241, 90, 236;          /* Neon pink */
+    --copy-primary: 255, 255, 255;   /* White */
+    --copy-secondary: 0, 255, 208;   /* Cyan */
+    --cta: 241, 90, 236;            /* Neon pink */
+    --cta-active: 254, 42, 140;     /* Hot pink */
+    --cta-text: 39, 35, 67;         /* Dark purple */
+    --accent: 0, 255, 208;          /* Cyan */
   }
 }
 
@@ -215,23 +270,5 @@
 
   .mobile-menu {
     @apply md:hidden;
-  }
-}
-
-@layer utilities {
-  .mobile-menu-enter {
-    @apply transform opacity-0 scale-95;
-  }
-
-  .mobile-menu-enter-active {
-    @apply transform opacity-100 scale-100 transition ease-out duration-100;
-  }
-
-  .mobile-menu-exit {
-    @apply transform opacity-100 scale-100;
-  }
-
-  .mobile-menu-exit-active {
-    @apply transform opacity-0 scale-95 transition ease-in duration-75;
   }
 }
