@@ -1,0 +1,35 @@
+{% extends 'layouts/base.html' %}
+{% load account %}
+
+{% block head_title %}Confirm Email Address{% endblock %}
+
+{% block content %}
+<div class="max-w-md w-full space-y-8 bg-white p-8 rounded-lg shadow-md">
+    <div>
+        <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+            Confirm Email Address
+        </h2>
+    </div>
+
+    {% if confirmation %}
+        {% user_display confirmation.email_address.user as user_display %}
+        <div class="text-center text-gray-600">
+            <p>Please confirm that <a href="mailto:{{ confirmation.email_address.email }}" class="text-indigo-600 hover:text-indigo-500">{{ confirmation.email_address.email }}</a> is an email address for user {{ user_display }}.</p>
+        </div>
+
+        <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+            {% csrf_token %}
+            <div class="mt-6">
+                <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Confirm
+                </button>
+            </div>
+        </form>
+    {% else %}
+        <div class="text-center space-y-4">
+            {% url 'account_email' as email_url %}
+            <p class="text-red-600">This email confirmation link has expired or is invalid. Please <a href="{{ email_url }}" class="underline hover:text-red-500">request a new email confirmation</a>.</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
