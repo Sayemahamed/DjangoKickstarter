@@ -554,6 +554,8 @@ video {
   display: none;
 }
 
+/* Default Light Theme */
+
 :root {
   --color-primary: 255 255 255;
   --color-secondary: 243 244 246;
@@ -569,25 +571,93 @@ video {
   --cta-text: 255, 255, 255;
 }
 
-.dark {
-  --color-primary: 31 41 55;
-  --color-secondary: 17 24 39;
-  --color-accent: 96 165 250;
-  --color-text: 243 244 246;
+/* Pink Theme */
+
+.theme-pink {
+  --color-primary: 236 72 153;
+  /* Pink-500 */
+  --color-secondary: 249 168 212;
+  /* Pink-300 */
+  --color-accent: 219 39 119;
+  /* Pink-600 */
+  --color-text: 31 41 55;
+  --background: 253, 242, 248;
+  /* Pink-50 */
+  --border: 251, 207, 232;
+  /* Pink-200 */
+  --card: 252, 231, 243;
+  /* Pink-100 */
+  --copy-primary: 157, 23, 77;
+  /* Pink-800 */
+  --copy-secondary: 219, 39, 119;
+  /* Pink-600 */
+  --cta: 236, 72, 153;
+  /* Pink-500 */
+  --cta-active: 219, 39, 119;
+  /* Pink-600 */
+  --cta-text: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: 0, 0, 0;
-    --border: 38, 38, 38;
-    --card: 23, 23, 23;
-    --copy-primary: 250, 250, 250;
-    --copy-secondary: 115, 115, 115;
-    --cta: 99, 102, 241;
-    --cta-active: 79, 70, 229;
-    --cta-text: 255, 255, 255;
-  }
+/* Green Theme */
+
+.theme-green {
+  --color-primary: 34 197 94;
+  /* Green-500 */
+  --color-secondary: 134 239 172;
+  /* Green-300 */
+  --color-accent: 22 163 74;
+  /* Green-600 */
+  --color-text: 31 41 55;
+  --background: 240, 253, 244;
+  /* Green-50 */
+  --border: 187, 247, 208;
+  /* Green-200 */
+  --card: 220, 252, 231;
+  /* Green-100 */
+  --copy-primary: 22, 101, 52;
+  /* Green-800 */
+  --copy-secondary: 22, 163, 74;
+  /* Green-600 */
+  --cta: 34, 197, 94;
+  /* Green-500 */
+  --cta-active: 22, 163, 74;
+  /* Green-600 */
+  --cta-text: 255, 255, 255;
 }
+
+/* Blue Theme */
+
+/* Tokyo Theme (Dark) */
+
+.theme-tokyo {
+  --color-primary: 113 42 161;
+  /* Purple-700 */
+  --color-secondary: 15 23 42;
+  /* Slate-900 */
+  --color-accent: 236 72 153;
+  /* Pink-500 */
+  --color-text: 226 232 240;
+  /* Slate-200 */
+  --background: 15, 23, 42;
+  /* Slate-900 */
+  --border: 51, 65, 85;
+  /* Slate-700 */
+  --card: 30, 41, 59;
+  /* Slate-800 */
+  --copy-primary: 226, 232, 240;
+  /* Slate-200 */
+  --copy-secondary: 148, 163, 184;
+  /* Slate-400 */
+  --cta: 236, 72, 153;
+  /* Pink-500 */
+  --cta-active: 219, 39, 119;
+  /* Pink-600 */
+  --cta-text: 255, 255, 255;
+}
+
+/* Cyberpunk Theme */
+
+/* Forest Theme */
 
 .sr-only {
   position: absolute;
@@ -1450,10 +1520,6 @@ video {
 
 .duration-200 {
   transition-duration: 200ms;
-}
-
-.ease-in {
-  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
 
 .ease-in-out {

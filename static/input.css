@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @layer base {
+  /* Default Light Theme */
   :root {
     --color-primary: 255 255 255;
     --color-secondary: 243 244 246;
@@ -18,23 +19,99 @@
     --cta-text: 255, 255, 255;
   }
 
-  .dark {
-    --color-primary: 31 41 55;
-    --color-secondary: 17 24 39;
-    --color-accent: 96 165 250;
-    --color-text: 243 244 246;
+  /* Pink Theme */
+  .theme-pink {
+    --color-primary: 236 72 153;      /* Pink-500 */
+    --color-secondary: 249 168 212;   /* Pink-300 */
+    --color-accent: 219 39 119;       /* Pink-600 */
+    --color-text: 31 41 55;
+    --background: 253, 242, 248;      /* Pink-50 */
+    --border: 251, 207, 232;          /* Pink-200 */
+    --card: 252, 231, 243;            /* Pink-100 */
+    --copy-primary: 157, 23, 77;      /* Pink-800 */
+    --copy-secondary: 219, 39, 119;   /* Pink-600 */
+    --cta: 236, 72, 153;             /* Pink-500 */
+    --cta-active: 219, 39, 119;      /* Pink-600 */
+    --cta-text: 255, 255, 255;
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --background: 0, 0, 0;
-      --border: 38, 38, 38;
-      --card: 23, 23, 23;
-      --copy-primary: 250, 250, 250;
-      --copy-secondary: 115, 115, 115;
-      --cta: 99, 102, 241;
-      --cta-active: 79, 70, 229;
-      --cta-text: 255, 255, 255;
-    }
+  /* Green Theme */
+  .theme-green {
+    --color-primary: 34 197 94;       /* Green-500 */
+    --color-secondary: 134 239 172;   /* Green-300 */
+    --color-accent: 22 163 74;        /* Green-600 */
+    --color-text: 31 41 55;
+    --background: 240, 253, 244;      /* Green-50 */
+    --border: 187, 247, 208;          /* Green-200 */
+    --card: 220, 252, 231;            /* Green-100 */
+    --copy-primary: 22, 101, 52;      /* Green-800 */
+    --copy-secondary: 22, 163, 74;    /* Green-600 */
+    --cta: 34, 197, 94;              /* Green-500 */
+    --cta-active: 22, 163, 74;       /* Green-600 */
+    --cta-text: 255, 255, 255;
+  }
+
+  /* Blue Theme */
+  .theme-blue {
+    --color-primary: 59 130 246;      /* Blue-500 */
+    --color-secondary: 147 197 253;   /* Blue-300 */
+    --color-accent: 37 99 235;        /* Blue-600 */
+    --color-text: 31 41 55;
+    --background: 239, 246, 255;      /* Blue-50 */
+    --border: 191, 219, 254;          /* Blue-200 */
+    --card: 219, 234, 254;            /* Blue-100 */
+    --copy-primary: 30, 64, 175;      /* Blue-800 */
+    --copy-secondary: 37, 99, 235;    /* Blue-600 */
+    --cta: 59, 130, 246;             /* Blue-500 */
+    --cta-active: 37, 99, 235;       /* Blue-600 */
+    --cta-text: 255, 255, 255;
+  }
+
+  /* Tokyo Theme (Dark) */
+  .theme-tokyo {
+    --color-primary: 113 42 161;      /* Purple-700 */
+    --color-secondary: 15 23 42;      /* Slate-900 */
+    --color-accent: 236 72 153;       /* Pink-500 */
+    --color-text: 226 232 240;        /* Slate-200 */
+    --background: 15, 23, 42;         /* Slate-900 */
+    --border: 51, 65, 85;             /* Slate-700 */
+    --card: 30, 41, 59;               /* Slate-800 */
+    --copy-primary: 226, 232, 240;    /* Slate-200 */
+    --copy-secondary: 148, 163, 184;  /* Slate-400 */
+    --cta: 236, 72, 153;             /* Pink-500 */
+    --cta-active: 219, 39, 119;      /* Pink-600 */
+    --cta-text: 255, 255, 255;
+  }
+
+  /* Cyberpunk Theme */
+  .theme-cyberpunk {
+    --color-primary: 244 63 94;       /* Rose-500 */
+    --color-secondary: 234 179 8;     /* Yellow-500 */
+    --color-accent: 45 212 191;       /* Teal-400 */
+    --color-text: 250 250 250;
+    --background: 3, 7, 18;           /* Dark blue-black */
+    --border: 244, 63, 94;            /* Rose-500 */
+    --card: 15, 23, 42;               /* Slate-900 */
+    --copy-primary: 250, 250, 250;    /* White */
+    --copy-secondary: 45, 212, 191;   /* Teal-400 */
+    --cta: 244, 63, 94;              /* Rose-500 */
+    --cta-active: 225, 29, 72;       /* Rose-600 */
+    --cta-text: 250, 250, 250;
+  }
+
+  /* Forest Theme */
+  .theme-forest {
+    --color-primary: 20 83 45;        /* Green-800 */
+    --color-secondary: 167 243 208;   /* Green-200 */
+    --color-accent: 34 197 94;        /* Green-500 */
+    --color-text: 20 83 45;
+    --background: 240, 253, 244;      /* Green-50 */
+    --border: 187, 247, 208;          /* Green-200 */
+    --card: 220, 252, 231;            /* Green-100 */
+    --copy-primary: 20, 83, 45;       /* Green-800 */
+    --copy-secondary: 22, 163, 74;    /* Green-600 */
+    --cta: 34, 197, 94;              /* Green-500 */
+    --cta-active: 22, 163, 74;       /* Green-600 */
+    --cta-text: 255, 255, 255;
   }
 }
