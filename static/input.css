@@ -249,6 +249,19 @@
     --cta-text: 39, 35, 67;         /* Dark purple */
     --accent: 0, 255, 208;          /* Cyan */
   }
+
+  /* Mint Dark Theme */
+  .theme-mint-dark {
+    --background: 15, 23, 42;         /* Slate-900 */
+    --card: 30, 41, 59;              /* Slate-800 */
+    --border: 51, 65, 85;            /* Slate-700 */
+    --copy-primary: 236, 253, 245;   /* Green-50 */
+    --copy-secondary: 167, 243, 208; /* Green-200 */
+    --cta: 16, 185, 129;            /* Green-500 */
+    --cta-active: 5, 150, 105;      /* Green-600 */
+    --cta-text: 255, 255, 255;      /* White */
+    --accent: 20, 184, 166;         /* Teal-500 */
+  }
 }
 
 @layer components {
