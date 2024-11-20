@@ -1,0 +1,130 @@
+{% extends 'layouts/base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block title %}Profile Settings{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl w-full space-y-8">
+    <!-- Profile Header -->
+    <div class="bg-card p-8 rounded-lg border border-border">
+        <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-8">
+            <div class="relative group">
+                {% if user.profile.avatar %}
+                <img class="w-32 h-32 rounded-full object-cover border-4 border-border bg-background"
+                    src="{{ user.profile.avatar.url }}"
+                    alt="{{ user.email }}'s Profile Image">
+                {% else %}
+                <img class="w-32 h-32 rounded-full object-cover border-4 border-border bg-background"
+                    src="{% static 'images/default-avatar.png' %}"
+                    alt="Default Profile Image">
+                {% endif %}
+            </div>
+            <div class="flex-1 text-center md:text-left">
+                <h1 class="text-3xl font-bold text-copy-primary mb-2">{{ user.get_full_name|default:user.email }}</h1>
+                <p class="text-copy-secondary">{{ user.email }}</p>
+                {% if user.profile.location %}
+                <p class="text-copy-secondary mt-2"> 📍 {{ user.profile.location }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <form method="post" enctype="multipart/form-data" class="space-y-6">
+        {% csrf_token %}
+        
+        <!-- Personal Information -->
+        <div class="bg-card p-6 rounded-lg border border-border">
+            <h2 class="text-xl font-semibold text-copy-primary mb-4">Personal Information</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-copy-secondary mb-1">First Name</label>
+                    {% render_field user_form.first_name class="w-full px-3 py-2 rounded-lg border border-border bg-background text-copy-primary focus:ring-2 focus:ring-primary focus:border-transparent" %}
+                    {% if user_form.first_name.errors %}
+                    <p class="mt-1 text-sm text-red-600">{{ user_form.first_name.errors.0 }}</p>
+                    {% endif %}
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-copy-secondary mb-1">Last Name</label>
+                    {% render_field user_form.last_name class="w-full px-3 py-2 rounded-lg border border-border bg-background text-copy-primary focus:ring-2 focus:ring-primary focus:border-transparent" %}
+                    {% if user_form.last_name.errors %}
+                    <p class="mt-1 text-sm text-red-600">{{ user_form.last_name.errors.0 }}</p>
+                    {% endif %}
+                </div>
+
+                <div class="md:col-span-2">
+                    <label class="block text-sm font-medium text-copy-secondary mb-1">Email</label>
+                    {% render_field user_form.email class="w-full px-3 py-2 rounded-lg border border-border bg-background text-copy-primary focus:ring-2 focus:ring-primary focus:border-transparent" %}
+                    {% if user_form.email.errors %}
+                    <p class="mt-1 text-sm text-red-600">{{ user_form.email.errors.0 }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Details -->
+        <div class="bg-card p-6 rounded-lg border border-border">
+            <h2 class="text-xl font-semibold text-copy-primary mb-4">Profile Details</h2>
+            
+            <div class="space-y-6">
+                <div>
+                    <label class="block text-sm font-medium text-copy-secondary mb-1">Profile Picture</label>
+                    {% render_field profile_form.avatar class="w-full px-3 py-2 rounded-lg border border-border bg-background text-copy-primary focus:ring-2 focus:ring-primary focus:border-transparent" %}
+                    {% if profile_form.avatar.errors %}
+                    <p class="mt-1 text-sm text-red-600">{{ profile_form.avatar.errors.0 }}</p>
+                    {% endif %}
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-copy-secondary mb-1">Bio</label>
+                    {% render_field profile_form.bio class="w-full px-3 py-2 rounded-lg border border-border bg-background text-copy-primary focus:ring-2 focus:ring-primary focus:border-transparent" rows="4" %}
+                    {% if profile_form.bio.errors %}
+                    <p class="mt-1 text-sm text-red-600">{{ profile_form.bio.errors.0 }}</p>
+                    {% endif %}
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-copy-secondary mb-1">Birth Date</label>
+                        {% render_field profile_form.birth_date class="w-full px-3 py-2 rounded-lg border border-border bg-background text-copy-primary focus:ring-2 focus:ring-primary focus:border-transparent" %}
+                        {% if profile_form.birth_date.errors %}
+                        <p class="mt-1 text-sm text-red-600">{{ profile_form.birth_date.errors.0 }}</p>
+                        {% endif %}
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-copy-secondary mb-1">Location</label>
+                        {% render_field profile_form.location class="w-full px-3 py-2 rounded-lg border border-border bg-background text-copy-primary focus:ring-2 focus:ring-primary focus:border-transparent" %}
+                        {% if profile_form.location.errors %}
+                        <p class="mt-1 text-sm text-red-600">{{ profile_form.location.errors.0 }}</p>
+                        {% endif %}
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-copy-secondary mb-1">Phone Number</label>
+                        {% render_field profile_form.phone_number class="w-full px-3 py-2 rounded-lg border border-border bg-background text-copy-primary focus:ring-2 focus:ring-primary focus:border-transparent" %}
+                        {% if profile_form.phone_number.errors %}
+                        <p class="mt-1 text-sm text-red-600">{{ profile_form.phone_number.errors.0 }}</p>
+                        {% endif %}
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-copy-secondary mb-1">Website</label>
+                        {% render_field profile_form.website class="w-full px-3 py-2 rounded-lg border border-border bg-background text-copy-primary focus:ring-2 focus:ring-primary focus:border-transparent" %}
+                        {% if profile_form.website.errors %}
+                        <p class="mt-1 text-sm text-red-600">{{ profile_form.website.errors.0 }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex justify-end">
+            <button type="submit" class="px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors">
+                Save Changes
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}
