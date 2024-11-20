@@ -133,6 +133,24 @@
     --accent: 100, 116, 139;        /* Slate-500 */
   }
 
+  /* Dark Rose Theme */
+  .theme-dark-rose {
+    --background: 28, 25, 23;         /* Warm gray 900 */
+    --card: 41, 37, 36;              /* Warm gray 800 */
+    --border: 120, 53, 15;           /* Rose 900 */
+    --copy-primary: 255, 241, 242;   /* Rose 50 */
+    --copy-secondary: 253, 164, 175; /* Rose 300 */
+    --cta: 225, 29, 72;             /* Rose 600 */
+    --cta-active: 190, 18, 60;      /* Rose 700 */
+    --cta-text: 255, 241, 242;      /* Rose 50 */
+    --accent: 244, 63, 94;          /* Rose 500 */
+    
+    /* Additional Rose Accents */
+    --rose-highlight: 251, 113, 133; /* Rose 400 */
+    --rose-muted: 159, 18, 57;      /* Rose 800 */
+    --rose-subtle: 76, 5, 25;       /* Rose 950 */
+  }
+
   /* Tokyo Night Theme (Dark) */
   .theme-tokyo {
     --background: 26, 27, 38;         /* Dark background */
@@ -261,6 +279,42 @@
     --cta-active: 5, 150, 105;      /* Green-600 */
     --cta-text: 255, 255, 255;      /* White */
     --accent: 20, 184, 166;         /* Teal-500 */
+  }
+
+  /* Hot Pink Light Theme */
+  .theme-hotpink-light {
+    --background: 255, 255, 255;      /* White */
+    --card: 253, 242, 248;           /* Pink 50 */
+    --border: 251, 207, 232;         /* Pink 200 */
+    --copy-primary: 131, 24, 67;     /* Pink 900 */
+    --copy-secondary: 219, 39, 119;  /* Pink 600 */
+    --cta: 236, 72, 153;            /* Pink 500 */
+    --cta-active: 219, 39, 119;     /* Pink 600 */
+    --cta-text: 255, 255, 255;      /* White */
+    --accent: 244, 114, 182;        /* Pink 400 */
+    
+    /* Additional Hot Pink Accents */
+    --hotpink-highlight: 249, 168, 212; /* Pink 300 */
+    --hotpink-muted: 190, 24, 93;      /* Pink 700 */
+    --hotpink-subtle: 253, 242, 248;   /* Pink 50 */
+  }
+
+  /* Hot Pink Dark Theme */
+  .theme-hotpink-dark {
+    --background: 31, 6, 18;          /* Pink 950 */
+    --card: 74, 11, 38;              /* Pink 900 */
+    --border: 190, 24, 93;           /* Pink 700 */
+    --copy-primary: 252, 231, 243;   /* Pink 100 */
+    --copy-secondary: 249, 168, 212; /* Pink 300 */
+    --cta: 236, 72, 153;            /* Pink 500 */
+    --cta-active: 219, 39, 119;     /* Pink 600 */
+    --cta-text: 255, 255, 255;      /* White */
+    --accent: 244, 114, 182;        /* Pink 400 */
+    
+    /* Additional Hot Pink Accents */
+    --hotpink-highlight: 251, 207, 232; /* Pink 200 */
+    --hotpink-muted: 131, 24, 67;      /* Pink 800 */
+    --hotpink-subtle: 253, 242, 248;   /* Pink 50 */
   }
 }
 
