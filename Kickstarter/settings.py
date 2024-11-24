@@ -12,16 +12,19 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 import os
 from pathlib import Path
-from decouple import config, Csv
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR: Path = Path(__file__).resolve().parent.parent
 
 # SECURITY SETTINGS
 # ------------------------------------------------------------------------------
-SECRET_KEY = config('DJANGO_SECRET_KEY', default='django-insecure-key')
-DEBUG = config('DEBUG', default=False, cast=bool)
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1', cast=Csv())
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-key')
+DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
 # APPS
 # ------------------------------------------------------------------------------
@@ -147,9 +150,9 @@ else:
     EMAIL_HOST = 'smtp.gmail.com'
     EMAIL_PORT = 465
     EMAIL_USE_SSL = True
-    EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
-    EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
-    DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default=EMAIL_HOST_USER)
+    EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', default='')
+    EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', default='')
+    DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', default=EMAIL_HOST_USER)
 
 # SOCIAL ACCOUNT
 # ------------------------------------------------------------------------------
@@ -161,8 +164,8 @@ SOCIALACCOUNT_FORMS = {
 SOCIALACCOUNT_PROVIDERS = {
     "google": {
         "APP": {
-            "client_id": config('GOOGLE_CLIENT_ID', default=''),
-            "secret": config('GOOGLE_CLIENT_SECRET', default=''),
+            "client_id": os.getenv('GOOGLE_CLIENT_ID', default=''),
+            "secret": os.getenv('GOOGLE_CLIENT_SECRET', default=''),
             "key": "",
         },
         "SCOPE": [
@@ -175,8 +178,8 @@ SOCIALACCOUNT_PROVIDERS = {
     },
     "facebook": {
         "APP": {
-            "client_id": config('FACEBOOK_CLIENT_ID', default=''),
-            "secret": config('FACEBOOK_CLIENT_SECRET', default=''),
+            "client_id": os.getenv('FACEBOOK_CLIENT_ID', default=''),
+            "secret": os.getenv('FACEBOOK_CLIENT_SECRET', default=''),
             "key": "",
         },
         "SCOPE": [

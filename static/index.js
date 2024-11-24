@@ -1,18 +1,22 @@
 // Theme Management
 function initializeTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        document.documentElement.className = savedTheme;
-        document.getElementById('theme-selector').value = savedTheme;
-        const mobileSelector = document.getElementById('mobile-theme-selector');
-        if (mobileSelector) {
-            mobileSelector.value = savedTheme;
+    const savedTheme = localStorage.getItem('theme') || 'theme-default-light';
+    document.documentElement.className = savedTheme;
+    
+    // Update both selectors if they exist
+    const selectors = ['theme-selector', 'mobile-theme-selector'];
+    selectors.forEach(id => {
+        const selector = document.getElementById(id);
+        if (selector) {
+            selector.value = savedTheme;
         }
-    }
+    });
 }
 
 function handleThemeChange(event) {
     const theme = event.target.value;
+    if (!theme) return; // Don't proceed if theme is empty
+    
     document.documentElement.className = theme;
     localStorage.setItem('theme', theme);
     
