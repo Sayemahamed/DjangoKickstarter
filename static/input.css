@@ -316,6 +316,110 @@
     --hotpink-muted: 131, 24, 67;      /* Pink 800 */
     --hotpink-subtle: 253, 242, 248;   /* Pink 50 */
   }
+
+  /* Pink Light Theme */
+  .theme-pink-light {
+    --background: 255, 255, 255;      /* White */
+    --card: 253, 242, 248;           /* Pink-50 */
+    --border: 251, 207, 232;         /* Pink-200 */
+    --copy-primary: 131, 24, 67;     /* Pink-900 */
+    --copy-secondary: 157, 23, 77;   /* Pink-800 */
+    --cta: 236, 72, 153;            /* Pink-500 */
+    --cta-active: 219, 39, 119;     /* Pink-600 */
+    --cta-text: 255, 255, 255;      /* White */
+    --accent: 244, 114, 182;        /* Pink-400 */
+  }
+
+  /* Pink Dark Theme */
+  .theme-pink-dark {
+    --background: 31, 24, 35;         /* Dark pink background */
+    --card: 44, 31, 47;              /* Darker pink card */
+    --border: 157, 23, 77;           /* Pink-800 */
+    --copy-primary: 251, 207, 232;   /* Pink-200 */
+    --copy-secondary: 244, 114, 182; /* Pink-400 */
+    --cta: 236, 72, 153;            /* Pink-500 */
+    --cta-active: 219, 39, 119;     /* Pink-600 */
+    --cta-text: 255, 255, 255;      /* White */
+    --accent: 244, 114, 182;        /* Pink-400 */
+  }
+
+  /* Green Light Theme */
+  .theme-green-light {
+    --background: 255, 255, 255;      /* White */
+    --card: 240, 253, 244;           /* Green-50 */
+    --border: 187, 247, 208;         /* Green-200 */
+    --copy-primary: 20, 83, 45;      /* Green-900 */
+    --copy-secondary: 22, 101, 52;   /* Green-800 */
+    --cta: 34, 197, 94;             /* Green-500 */
+    --cta-active: 22, 163, 74;      /* Green-600 */
+    --cta-text: 255, 255, 255;      /* White */
+    --accent: 74, 222, 128;         /* Green-400 */
+  }
+
+  /* Green Dark Theme */
+  .theme-green-dark {
+    --background: 24, 35, 27;         /* Dark green background */
+    --card: 31, 47, 35;              /* Darker green card */
+    --border: 22, 101, 52;           /* Green-800 */
+    --copy-primary: 187, 247, 208;   /* Green-200 */
+    --copy-secondary: 74, 222, 128;  /* Green-400 */
+    --cta: 34, 197, 94;             /* Green-500 */
+    --cta-active: 22, 163, 74;      /* Green-600 */
+    --cta-text: 255, 255, 255;      /* White */
+    --accent: 74, 222, 128;         /* Green-400 */
+  }
+
+  /* Corporate Light Theme */
+  .theme-corporate-light {
+    --background: 255, 255, 255;      /* White */
+    --card: 248, 250, 252;           /* Slate-50 */
+    --border: 226, 232, 240;         /* Slate-200 */
+    --copy-primary: 30, 41, 59;      /* Slate-800 */
+    --copy-secondary: 71, 85, 105;   /* Slate-600 */
+    --cta: 37, 99, 235;             /* Blue-600 */
+    --cta-active: 29, 78, 216;      /* Blue-700 */
+    --cta-text: 255, 255, 255;      /* White */
+    --accent: 59, 130, 246;         /* Blue-500 */
+  }
+
+  /* Corporate Blue Theme */
+  .theme-corporate-blue {
+    --background: 248, 250, 252;      /* Slate-50 */
+    --card: 255, 255, 255;           /* White */
+    --border: 226, 232, 240;         /* Slate-200 */
+    --copy-primary: 30, 58, 138;     /* Blue-900 */
+    --copy-secondary: 37, 99, 235;   /* Blue-600 */
+    --cta: 59, 130, 246;            /* Blue-500 */
+    --cta-active: 37, 99, 235;      /* Blue-600 */
+    --cta-text: 255, 255, 255;      /* White */
+    --accent: 96, 165, 250;         /* Blue-400 */
+  }
+
+  /* Corporate Gray Theme */
+  .theme-corporate-gray {
+    --background: 250, 250, 250;      /* Neutral-50 */
+    --card: 255, 255, 255;           /* White */
+    --border: 229, 229, 229;         /* Neutral-200 */
+    --copy-primary: 38, 38, 38;      /* Neutral-800 */
+    --copy-secondary: 82, 82, 82;    /* Neutral-600 */
+    --cta: 115, 115, 115;           /* Neutral-500 */
+    --cta-active: 82, 82, 82;       /* Neutral-600 */
+    --cta-text: 255, 255, 255;      /* White */
+    --accent: 163, 163, 163;        /* Neutral-400 */
+  }
+
+  /* Corporate Dark Theme */
+  .theme-corporate-dark {
+    --background: 17, 24, 39;         /* Gray-900 */
+    --card: 31, 41, 55;              /* Gray-800 */
+    --border: 55, 65, 81;            /* Gray-700 */
+    --copy-primary: 243, 244, 246;   /* Gray-100 */
+    --copy-secondary: 209, 213, 219; /* Gray-300 */
+    --cta: 59, 130, 246;            /* Blue-500 */
+    --cta-active: 37, 99, 235;      /* Blue-600 */
+    --cta-text: 255, 255, 255;      /* White */
+    --accent: 96, 165, 250;         /* Blue-400 */
+  }
 }
 
 @layer components {

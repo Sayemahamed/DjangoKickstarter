@@ -25,7 +25,7 @@
                     {% if user.socialaccount_set.all %}
                         {% for account in user.socialaccount_set.all %}
                         <span class="px-3 py-1 rounded-full text-sm bg-background border border-border text-copy-secondary">
-                            {{ account.provider }}
+                            {{ account.provider|title }}
                         </span>
                         {% endfor %}
                     {% endif %}
@@ -101,12 +101,30 @@
                     {% for account in user.socialaccount_set.all %}
                     <div class="flex items-center justify-between p-3 rounded-lg bg-background">
                         <div class="flex items-center space-x-3">
-                            <img src="{% static 'images/'|add:account.provider|add:'.svg' %}" 
-                                 alt="{{ account.provider }}" 
-                                 class="w-5 h-5">
+                            <div class="w-5 h-5 flex items-center justify-center text-copy-secondary">
+                                {% with 'images/'|add:account.provider|add:'.svg' as provider_icon %}
+                                    {% if provider_icon %}
+                                        <img src="{% static provider_icon %}" 
+                                             alt="{{ account.provider }}" 
+                                             class="w-5 h-5"
+                                             onerror="this.onerror=null; this.innerHTML='<svg class=\'w-5 h-5\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z\'/></svg>';">
+                                    {% else %}
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                                        </svg>
+                                    {% endif %}
+                                {% endwith %}
+                            </div>
                             <span class="text-copy-primary">{{ account.provider|title }}</span>
                         </div>
-                        <button class="text-sm text-cta hover:text-cta-active">Disconnect</button>
+                        <form method="post" action="{% url 'socialaccount_connections' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="account" value="{{ account.id }}">
+                            <button type="submit" class="text-sm text-cta hover:text-cta-active">
+                                Disconnect
+                            </button>
+                        </form>
                     </div>
                     {% endfor %}
                 {% else %}
@@ -116,10 +134,22 @@
                         {% for provider in socialaccount_providers %}
                         <a href="{% provider_login_url provider.id process='connect' %}"
                            class="flex items-center justify-center px-4 py-2 border border-border rounded-lg text-copy-primary hover:bg-background transition-colors">
-                            <img src="{% static 'images/'|add:provider.name|add:'.svg' %}" 
-                                 alt="{{ provider.name }}" 
-                                 class="w-5 h-5 mr-2">
-                            Connect {{ provider.name }}
+                            <div class="w-5 h-5 mr-2 flex items-center justify-center text-copy-secondary">
+                                {% with 'images/'|add:provider.name|add:'.svg' as provider_icon %}
+                                    {% if provider_icon %}
+                                        <img src="{% static provider_icon %}" 
+                                             alt="{{ provider.name }}" 
+                                             class="w-5 h-5"
+                                             onerror="this.onerror=null; this.innerHTML='<svg class=\'w-5 h-5\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z\'/></svg>';">
+                                    {% else %}
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                                        </svg>
+                                    {% endif %}
+                                {% endwith %}
+                            </div>
+                            Connect {{ provider.name|title }}
                         </a>
                         {% endfor %}
                     </div>
