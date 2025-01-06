@@ -73,6 +73,44 @@ npm run build
 
 ---
 
+## Auto Deployment on a VPS
+1. Create a file in   ```.github/workflows/<file_name>.yml``` and add the provided code snippet to it.
+```
+name: Deploy on Push
+
+on:
+  push:
+    branches:
+      - main # Adjust to your desired branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Install sshpass
+      run: sudo apt-get update && sudo apt-get install -y sshpass
+
+    - name: Deploy using rsync
+      env:
+        SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
+        SSH_IPADDRESS: ${{ secrets.SSH_IPADDRESS }}
+        SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
+      run: |
+        sshpass -p "$SSH_PASSWORD" rsync -rv \
+          -e "ssh -o StrictHostKeyChecking=no" \
+          ./ "$SSH_USERNAME@$SSH_IPADDRESS:<destination_path>" --exclude .git
+```
+2. Configure the following secrets in your GitHub repository:
+ * ```SSH_USERNAME```: Your VPS username
+ * ```SSH_PASSWORD```: Your VPS password
+ * ```SSH_IPADDRESS```: The IP address of your VPS
+3. Update the ```destination_path``` in the code to specify where your project should be deployed on the server.
+---
+
 ## Folder Structure
 
 ```
